@@ -118,6 +118,29 @@ class ViewController: UIViewController {
     @objc func handleDismissTap(_ gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
+    
+///checks if textField.text is a valid input
+    fileprivate func checkNumberInput(tf: UnderlinedTextField, base: Base) {
+        if !isValidNumber(text: tf.text!, base: bases[selectedIndex.from]) { //if input is invalid, turn it red, maybe show error as well
+            tf.setUnderlineColor(color: .red)
+        } else { //if no errors on input, return back to default color
+            tf.setDefaultUnderlineColor()
+        }
+    }
+    
+/// Checks if from/to NumTextField text input is valid
+/// - Parameters:
+///   - text: from/to NumTextField.text
+///   - base: from/to baseTextField's base
+/// - Returns: true if valid, and should encode or decode
+    fileprivate func isValidNumber(text: String, base: Base) -> Bool {
+        let possibleCharacters = base.getImpossibleCharacters()
+        for char in possibleCharacters where text.contains(char) { //if text contains one of he impossible characters, then it is not valid
+            print(char, " in ", text, " is not a valid for base ", base.rawValue)
+            return false
+        }
+        return true
+    }
 }
 
 //MARK: Extensions
