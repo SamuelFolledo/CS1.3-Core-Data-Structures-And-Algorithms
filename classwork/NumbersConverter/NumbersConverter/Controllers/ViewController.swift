@@ -71,17 +71,18 @@ class ViewController: UIViewController {
         toolBar.setItems([flexibleBar, doneButton], animated: true)
         //fromBase
         fromBaseTextField.inputAccessoryView = toolBar
-        fromBaseTextField.inputView = fromPicker
+        fromBaseTextField.inputView = fromPicker //make pickerView the input
         fromBaseTextField.clearButtonMode = .never
         let fromBaseText = String(bases[selectedIndex.from].intValue)
         fromBaseTextField.text = fromBaseText
+        fromPicker.selectRow(selectedIndex.from, inComponent: 0, animated: true)
         //toBase
         toBaseTextField.inputAccessoryView = toolBar
-        toBaseTextField.inputView = toPicker
+        toBaseTextField.inputView = toPicker //make pickerView the input
         toBaseTextField.clearButtonMode = .never
         let toBaseText = bases[selectedIndex.to].intValue
         toBaseTextField.text = String(toBaseText)
-        print("selected index=", selectedIndex)
+        toPicker.selectRow(selectedIndex.to, inComponent: 0, animated: true)
     }
     
     fileprivate func createBases() {
@@ -122,13 +123,13 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == fromPicker {
-            let answer = bases[selectedIndex.from]
-            print("From Row: ", row)
-            print("From: ", answer)
+            selectedIndex.from = row
+            let base = bases[selectedIndex.from]
+            fromBaseTextField.text = String(base.intValue)
         } else if pickerView == toPicker {
-            let answer = bases[selectedIndex.to] //assign the answer of the question in the array as the question's answer
-            print("To Row: ", row)
-            print("To: ", answer)
+            selectedIndex.to = row
+            let base = bases[selectedIndex.to] //assign the answer of the question in
+            toBaseTextField.text = String(base.intValue)
         }
     }
 }
