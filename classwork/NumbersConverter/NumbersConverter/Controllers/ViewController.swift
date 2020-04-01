@@ -94,6 +94,24 @@ class ViewController: UIViewController {
         fromPicker.reloadAllComponents()
     }
     
+///adds a binary, octal, decimal, or hex on picker title depending on row
+    fileprivate func getPickerTitle(row: Int) -> String {
+        var title: String = String(bases[row].rawValue)
+        switch row {
+        case 0:
+            title += " (binary)"
+        case 6:
+            title += " (octal)"
+        case 8:
+            title += " (decimal)"
+        case 14:
+            title += " (hex)"
+        default:
+            break
+        }
+        return title
+    }
+    
 //MARK: IBActions
     
 //MARK: Helpers
@@ -116,10 +134,10 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == fromPicker { //picker's title for each row
             selectedIndex.from = row //update title based on selectedIndex base on the row
-            return String(bases[selectedIndex.from].intValue)
+            return getPickerTitle(row: row)
         } else if pickerView == toPicker {
             selectedIndex.to = row
-            return String(bases[selectedIndex.to].intValue)
+            return getPickerTitle(row: row)
         }
         return ""
     }
@@ -128,11 +146,11 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         if pickerView == fromPicker {
             selectedIndex.from = row
             let base = bases[selectedIndex.from]
-            fromBaseTextField.text = String(base.intValue)
+            fromBaseTextField.text = String(base.rawValue)
         } else if pickerView == toPicker {
             selectedIndex.to = row
             let base = bases[selectedIndex.to] //assign the answer of the question in
-            toBaseTextField.text = String(base.intValue)
+            toBaseTextField.text = String(base.rawValue)
         }
     }
 }
@@ -142,7 +160,7 @@ extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case fromNumTextField:
-            switch textField.text?.trimmedString() {
+            switch textField.text?.trimmedString() { //if textfield was empty, add 0
             case "":
                 textField.text = "0"
             default:
