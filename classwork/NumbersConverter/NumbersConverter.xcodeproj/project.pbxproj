@@ -86,8 +86,9 @@
 				339FB37024340CB3007E0291 /* AppDelegate.swift */,
 				339FB37224340CB3007E0291 /* SceneDelegate.swift */,
 				339FB37624340CB3007E0291 /* Main.storyboard */,
-				339FB37424340CB3007E0291 /* ViewController.swift */,
-				339FB3922434118E007E0291 /* HelperViews */,
+				339FB39924342482007E0291 /* Models */,
+				339FB3972434245D007E0291 /* Controllers */,
+				339FB39824342466007E0291 /* Views */,
 				339FB37924340CB7007E0291 /* Assets.xcassets */,
 				339FB37B24340CB7007E0291 /* LaunchScreen.storyboard */,
 				339FB37E24340CB7007E0291 /* Info.plist */,
@@ -104,13 +105,36 @@
 			path = NumbersConverterTests;
 			sourceTree = "<group>";
 		};
-		339FB3922434118E007E0291 /* HelperViews */ = {
+		339FB3922434118E007E0291 /* UnderlinedTextField */ = {
 			isa = PBXGroup;
 			children = (
 				339FB3932434118E007E0291 /* UnderlinedTextField.swift */,
 				339FB3942434118E007E0291 /* NewBoxCellFlowLayout.swift */,
 			);
-			path = HelperViews;
+			path = UnderlinedTextField;
+			sourceTree = "<group>";
+		};
+		339FB3972434245D007E0291 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				339FB37424340CB3007E0291 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		339FB39824342466007E0291 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				339FB3922434118E007E0291 /* UnderlinedTextField */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		339FB39924342482007E0291 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
