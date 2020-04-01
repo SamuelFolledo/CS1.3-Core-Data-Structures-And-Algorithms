@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 //MARK: Properties
-    var bases: [Int] = []
+    var bases: [Base] = []
 //MARK: IBOutlets
     @IBOutlet weak var fromNumTextField: UnderlinedTextField!
     @IBOutlet weak var fromBaseTextField: UnderlinedTextField!
@@ -49,13 +49,35 @@ class ViewController: UIViewController {
         fromNumTextField.clearButtonMode = .always
         toNumTextField.keyboardType = .numberPad
         toNumTextField.clearButtonMode = .always
+        setupBaseTextFields()
+    }
+
+    fileprivate func setupBaseTextFields() {
         createBases()
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let flexibleBar = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.handleDismissTap(_:)))
+        toolBar.setItems([flexibleBar, doneButton], animated: true)
+        
+        fromBaseTextField.inputAccessoryView = toolBar
+        fromBaseTextField.inputView = fromPicker
+        fromBaseTextField.clearButtonMode = .never
+        let fromBase = String(bases[0].intValue)
+        fromBaseTextField.text = fromBase
+        
+        toBaseTextField.inputAccessoryView = toolBar
+        toBaseTextField.inputView = toPicker
+        toBaseTextField.clearButtonMode = .never
+        let toBase = bases[0].intValue
+        toBaseTextField.text = String(toBase)
+        print("selected index=", selectedIndex)
     }
     
     fileprivate func createBases() {
-        for i in 2...36 {
-            bases.append(i)
-        }
+        bases = Base.allCases
+        toPicker.reloadAllComponents()
+        fromPicker.reloadAllComponents()
     }
     
 //MARK: IBActions
@@ -81,10 +103,12 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == fromPicker {
-            return String(bases[selectedIndex.from])
+        if pickerView == fromPicker { //picker's title for each row
+            selectedIndex.from = row //update title based on selectedIndex base on the row
+            return String(bases[selectedIndex.from].intValue)
         } else if pickerView == toPicker {
-            return String(bases[selectedIndex.to])
+            selectedIndex.to = row
+            return String(bases[selectedIndex.to].intValue)
         }
         return ""
     }
@@ -92,14 +116,12 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == fromPicker {
             let answer = bases[selectedIndex.from]
-//            bases[selectedIndex].answer = answer
+            print("From Row: ", row)
             print("From: ", answer)
-//            tableView.reloadData()
-        } else if pickerView == fromPicker {
+        } else if pickerView == toPicker {
             let answer = bases[selectedIndex.to] //assign the answer of the question in the array as the question's answer
-//            bases[selectedIndex].answer = answer
+            print("To Row: ", row)
             print("To: ", answer)
-            //            tableView.reloadData()
         }
     }
 }
