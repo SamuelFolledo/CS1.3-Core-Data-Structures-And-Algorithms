@@ -8,18 +8,19 @@
 
 import Foundation
 
-let kPOSSIBLECHARACTERS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+let kPOSSIBLECHARACTERS: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].reversed() //reversed to get impossible instead
 
 enum Base: Int {
     case two = 2, three = 3, four = 4, five = 5, six = 6, seven = 7, eight = 8, nine = 9, ten = 10, eleven = 11, twelve = 12, thirteen = 13, fourteen = 14, fifteen = 15, sixteen = 16, seventeen = 17, eighteen = 18, nineteen = 19, twenty = 20, twentyOne = 21, twentyTwo = 22, twentyThree = 23, twentyFour = 24, twentyFive = 25, twentySix = 26, twentySeven = 27, twentyEight = 28, twentyNine = 29, thirty = 30, thirtyOne = 31, thirtyTwo = 32, thirtyThree = 33, thirtyFour = 34, thirtyFive = 35, thirtysix = 36
     
 ///returns list of possible characters for that base
-    func getPossibleCharacters() -> [String] {
-        var possibleChars: [String] = []
-        for i in 0 ..< self.rawValue {
-            possibleChars.append(kPOSSIBLECHARACTERS[i])
+    func getImpossibleCharacters() -> [String] {
+        var impossibleChars: [String] = []
+        let iterationCount = Base.allCases.count - self.rawValue //get length impossible characters
+        for i in 0 ... iterationCount {
+            impossibleChars.append(kPOSSIBLECHARACTERS[i]) //append each impossible characters
         }
-        return possibleChars
+        return impossibleChars
     }
 }
 
