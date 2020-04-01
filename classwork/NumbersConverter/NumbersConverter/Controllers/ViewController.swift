@@ -16,6 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var fromBaseTextField: UnderlinedTextField!
     @IBOutlet weak var toNumTextField: UnderlinedTextField!
     @IBOutlet weak var toBaseTextField: UnderlinedTextField!
+    lazy var keyboardToolBar: UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let flexibleBar = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.handleDismissTap(_:)))
+        toolBar.setItems([flexibleBar, doneButton], animated: true)
+        return toolBar
+    }()
     var fromPicker = UIPickerView()
     var toPicker = UIPickerView()
     var selectedIndex: (from: Int, to: Int) = (from: 8, to: 0)
@@ -37,8 +45,6 @@ class ViewController: UIViewController {
         removeKeyboardObervers()
     }
     
-//MARK: Navigation
-    
 //MARK: Private Methods
     fileprivate func setupViews() {
         fromPicker.delegate = self
@@ -55,32 +61,29 @@ class ViewController: UIViewController {
         fromNumTextField.keyboardType = .numberPad
         fromNumTextField.clearButtonMode = .always
         fromNumTextField.text = String(0)
+        fromNumTextField.inputAccessoryView = keyboardToolBar //add toolBar
         //toNum
         toNumTextField.delegate = self
         toNumTextField.keyboardType = .numberPad
         toNumTextField.clearButtonMode = .always
         toNumTextField.text = String(0)
+        toNumTextField.inputAccessoryView = keyboardToolBar //add toolBar
     }
 
     fileprivate func setupBaseTextFields() {
         createBases()
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let flexibleBar = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.handleDismissTap(_:)))
-        toolBar.setItems([flexibleBar, doneButton], animated: true)
         //fromBase
-        fromBaseTextField.inputAccessoryView = toolBar
+        fromBaseTextField.inputAccessoryView = keyboardToolBar
         fromBaseTextField.inputView = fromPicker //make pickerView the input
         fromBaseTextField.clearButtonMode = .never
-        let fromBaseText = String(bases[selectedIndex.from].intValue)
+        let fromBaseText = String(bases[selectedIndex.from].rawValue)
         fromBaseTextField.text = fromBaseText
         fromPicker.selectRow(selectedIndex.from, inComponent: 0, animated: true)
         //toBase
-        toBaseTextField.inputAccessoryView = toolBar
+        toBaseTextField.inputAccessoryView = keyboardToolBar
         toBaseTextField.inputView = toPicker //make pickerView the input
         toBaseTextField.clearButtonMode = .never
-        let toBaseText = bases[selectedIndex.to].intValue
+        let toBaseText = bases[selectedIndex.to].rawValue
         toBaseTextField.text = String(toBaseText)
         toPicker.selectRow(selectedIndex.to, inComponent: 0, animated: true)
     }
