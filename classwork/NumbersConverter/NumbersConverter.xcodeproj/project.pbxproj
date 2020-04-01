@@ -16,6 +16,7 @@
 		339FB38824340CB7007E0291 /* NumbersConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FB38724340CB7007E0291 /* NumbersConverterTests.swift */; };
 		339FB3952434118E007E0291 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FB3932434118E007E0291 /* UnderlinedTextField.swift */; };
 		339FB3962434118E007E0291 /* NewBoxCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FB3942434118E007E0291 /* NewBoxCellFlowLayout.swift */; };
+		339FB39B243424A3007E0291 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FB39A243424A3007E0291 /* Base.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		339FB38924340CB7007E0291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		339FB3932434118E007E0291 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		339FB3942434118E007E0291 /* NewBoxCellFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBoxCellFlowLayout.swift; sourceTree = "<group>"; };
+		339FB39A243424A3007E0291 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		339FB39924342482007E0291 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				339FB39A243424A3007E0291 /* Base.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339FB39B243424A3007E0291 /* Base.swift in Sources */,
 				339FB37524340CB3007E0291 /* ViewController.swift in Sources */,
 				339FB37124340CB3007E0291 /* AppDelegate.swift in Sources */,
 				339FB37324340CB3007E0291 /* SceneDelegate.swift in Sources */,
