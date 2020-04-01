@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var toBaseTextField: UnderlinedTextField!
     var fromPicker = UIPickerView()
     var toPicker = UIPickerView()
-    var selectedIndex: (from: Int, to: Int) = (from: 0, to: 0)
+    var selectedIndex: (from: Int, to: Int) = (from: 8, to: 0)
     
 //MARK: App Life Cycle
     override func viewDidLoad() {
@@ -45,11 +45,21 @@ class ViewController: UIViewController {
         toPicker.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleDismissTap(_:)))
         self.view.addGestureRecognizer(tap)
+        setupNumTextFields()
+        setupBaseTextFields()
+    }
+    
+    fileprivate func setupNumTextFields() {
+        //fromNum
+        fromNumTextField.delegate = self
         fromNumTextField.keyboardType = .numberPad
         fromNumTextField.clearButtonMode = .always
+        fromNumTextField.text = String(0)
+        //toNum
+        toNumTextField.delegate = self
         toNumTextField.keyboardType = .numberPad
         toNumTextField.clearButtonMode = .always
-        setupBaseTextFields()
+        toNumTextField.text = String(0)
     }
 
     fileprivate func setupBaseTextFields() {
@@ -59,18 +69,18 @@ class ViewController: UIViewController {
         let flexibleBar = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.handleDismissTap(_:)))
         toolBar.setItems([flexibleBar, doneButton], animated: true)
-        
+        //fromBase
         fromBaseTextField.inputAccessoryView = toolBar
         fromBaseTextField.inputView = fromPicker
         fromBaseTextField.clearButtonMode = .never
-        let fromBase = String(bases[0].intValue)
-        fromBaseTextField.text = fromBase
-        
+        let fromBaseText = String(bases[selectedIndex.from].intValue)
+        fromBaseTextField.text = fromBaseText
+        //toBase
         toBaseTextField.inputAccessoryView = toolBar
         toBaseTextField.inputView = toPicker
         toBaseTextField.clearButtonMode = .never
-        let toBase = bases[0].intValue
-        toBaseTextField.text = String(toBase)
+        let toBaseText = bases[selectedIndex.to].intValue
+        toBaseTextField.text = String(toBaseText)
         print("selected index=", selectedIndex)
     }
     
@@ -83,9 +93,6 @@ class ViewController: UIViewController {
 //MARK: IBActions
     
 //MARK: Helpers
-    @objc func showOptions(controller: UIViewController) {
-    }
-    
     @objc func handleDismissTap(_ gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -129,14 +136,46 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 //MARK: TextField
 extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        tableView.reloadData() //reload only after editing, or clicking done
+        switch textField {
+        case fromNumTextField:
+            switch textField.text?.trimmedString() {
+            case "":
+                textField.text = "0"
+            default:
+                break
+            }
+        case toNumTextField:
+            switch textField.text?.trimmedString() {
+            case "":
+                textField.text = "0"
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-////        if textField == myTextField {
-////            print("You edit myTextField")
-////        }
-//    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case fromNumTextField:
+            switch textField.text?.trimmedString() {
+            case "", "0":
+                textField.text = ""
+            default:
+                break
+            }
+        case toNumTextField:
+            switch textField.text?.trimmedString() {
+            case "", "0":
+                textField.text = ""
+            default:
+                break
+            }
+        default:
+            break
+        }
+    }
 }
 
 //MARK: Keyboard Helpers
