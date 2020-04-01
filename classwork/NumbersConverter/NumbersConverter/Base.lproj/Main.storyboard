@@ -18,9 +18,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-x5-EmG" userLabel="maain Stack View">
                                 <rect key="frame" x="28" y="183.5" width="319" height="300"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Base Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cyT-pV-mrb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Base Converter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cyT-pV-mrb">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="40"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -28,31 +28,59 @@
                                         <rect key="frame" x="0.0" y="70" width="319" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dma-Wv-r6Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="319" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="AHB-nv-387"/>
+                                                    <constraint firstAttribute="height" constant="24" id="AHB-nv-387"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lMB-py-xws">
-                                                <rect key="frame" x="0.0" y="50" width="319" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lMB-py-xws">
+                                                <rect key="frame" x="0.0" y="40" width="319" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-g7-03c" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="247" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Base" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zh6-pz-9X4" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
-                                                        <rect key="frame" x="255" y="0.0" width="64" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gUw-rX-vRc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIP-Ss-aNY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="213" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="LSj-lj-fCK"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-g7-03c" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="213" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8kt-ba-gpO">
+                                                        <rect key="frame" x="233" y="0.0" width="86" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p1-3X-idW">
+                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="icq-vf-GxF"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Base" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zh6-pz-9X4" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="86" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="Zh6-pz-9X4" firstAttribute="width" secondItem="8kt-ba-gpO" secondAttribute="width" multiplier="0.2" constant="68.599999999999994" id="ocC-R8-4oX"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="Zh6-pz-9X4" firstAttribute="width" secondItem="lMB-py-xws" secondAttribute="width" multiplier="0.2" id="aJp-Vu-cYX"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -65,28 +93,47 @@
                                         <rect key="frame" x="0.0" y="200" width="319" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-EK-QH8">
-                                                <rect key="frame" x="0.0" y="0.0" width="319" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rkb-Ct-jk3">
-                                                <rect key="frame" x="0.0" y="50" width="319" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rkb-Ct-jk3">
+                                                <rect key="frame" x="0.0" y="40" width="319" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8hd-te-JkJ" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="247" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Base" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="b7H-8P-8gi" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
-                                                        <rect key="frame" x="255" y="0.0" width="64" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jJt-Er-6wG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvz-hC-9QU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="213" height="20"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8hd-te-JkJ" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="213" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-1t-cdu">
+                                                        <rect key="frame" x="233" y="0.0" width="86" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew5-9C-Imy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="20"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Base" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="b7H-8P-8gi" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="86" height="32"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="b7H-8P-8gi" firstAttribute="width" secondItem="Rkb-Ct-jk3" secondAttribute="width" multiplier="0.2" id="Qqf-TJ-4So"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -100,8 +147,11 @@
                                     <constraint firstItem="hZv-EK-QH8" firstAttribute="height" secondItem="dma-Wv-r6Y" secondAttribute="height" id="5Iv-AJ-uCJ"/>
                                     <constraint firstItem="rQI-se-xPr" firstAttribute="width" secondItem="Ve3-x5-EmG" secondAttribute="width" id="DVp-ts-5M8"/>
                                     <constraint firstItem="KSa-xO-Hto" firstAttribute="width" secondItem="rQI-se-xPr" secondAttribute="width" id="FTf-kl-rhn"/>
+                                    <constraint firstItem="wvz-hC-9QU" firstAttribute="height" secondItem="sIP-Ss-aNY" secondAttribute="height" id="Jlx-3J-AVW"/>
                                     <constraint firstItem="cyT-pV-mrb" firstAttribute="width" secondItem="Ve3-x5-EmG" secondAttribute="width" id="Kkl-UN-W4n"/>
                                     <constraint firstAttribute="height" constant="300" id="RC2-XE-yWT"/>
+                                    <constraint firstItem="cXS-1t-cdu" firstAttribute="width" secondItem="8kt-ba-gpO" secondAttribute="width" id="Zx5-Lu-L8e"/>
+                                    <constraint firstItem="Ew5-9C-Imy" firstAttribute="height" secondItem="1p1-3X-idW" secondAttribute="height" id="u0Q-jl-9tM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
