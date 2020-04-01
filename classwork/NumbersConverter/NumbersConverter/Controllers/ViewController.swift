@@ -170,10 +170,12 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             selectedIndex.from = row
             let base = bases[selectedIndex.from]
             fromBaseTextField.text = String(base.rawValue)
+            checkNumberInput(tf: fromNumTextField, base: base) //check if input is valid
         } else if pickerView == toPicker {
             selectedIndex.to = row
             let base = bases[selectedIndex.to] //assign the answer of the question in
             toBaseTextField.text = String(base.rawValue)
+            checkNumberInput(tf: toNumTextField, base: base) //check if input is valid
         }
     }
 }
@@ -181,18 +183,19 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 //MARK: TextField
 extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        switch textField {
+        guard let tf = textField as? UnderlinedTextField else { return } //make sure it's an underlined tf
+        switch tf {
         case fromNumTextField:
-            switch textField.text?.trimmedString() { //if textfield was empty, add 0
+            switch tf.text?.trimmedString() { //if textfield was empty, add 0
             case "":
-                textField.text = "0"
+                tf.text = "0"
             default:
                 break
             }
         case toNumTextField:
-            switch textField.text?.trimmedString() {
+            switch tf.text?.trimmedString() { //if textfield was empty, add 0
             case "":
-                textField.text = "0"
+                tf.text = "0"
             default:
                 break
             }
@@ -240,24 +243,25 @@ extension ViewController: UITextFieldDelegate {
 
 //MARK: Keyboard Helpers
 extension ViewController {
+///setups the keyboard observers in order to be able to hide or not hide
     fileprivate func setupKeyboardNotifications() { //setup notifications when keyboard shows or hide
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+///remove keyboard observers, must call when view disappears
     fileprivate func removeKeyboardObervers() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     }
-    
+///moves view up when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) { //makes the view go up by keyboard's height
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0 {
-                view.frame.origin.y -= keyboardSize.height / 2
+                view.frame.origin.y -= keyboardSize.height / 1.7
             }
         }
     }
-    
+///moves view back down to original y when keyboard disappears
     @objc func keyboardWillHide(notification: NSNotification) { //put the view back to 0
         if view.frame.origin.y != 0 {
             view.frame.origin.y = 0
