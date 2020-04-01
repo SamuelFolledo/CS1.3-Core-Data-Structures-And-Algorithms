@@ -45,6 +45,64 @@ class ViewController: UIViewController {
         removeKeyboardObervers()
     }
     
+//MARK: To Do
+    /// Decode given digits in given base to number in base 10.
+    /// - Parameters:
+    ///   - digits: string representation of number (in given base)
+    ///   - base: base of given number
+    /// - Returns: integer representation of number (in base 10)
+    func decode(digits: String, base: Int) -> String {
+        var result: String = ""
+        // TODO: Decode digits from binary (base 2)
+        // ...
+        // TODO: Decode digits from hexadecimal (base 16)
+        // ...
+        // TODO: Decode digits from any base (2 up to 36)
+        // ...
+        return result
+    }
+
+    
+    /// Encode given number in base 10 to digits in given base
+    /// - Parameters:
+    ///   - number: integer representation of number (in base 10)
+    ///   - base: base to convert to
+    /// - Returns: string representation of number (in given base)
+    func encode(number: String, base: Int) -> String {
+        var result: String = ""
+        // Handle unsigned numbers only for now
+//        assert number >= 0, 'number is negative: {}'.format(number)
+        // TODO: Encode number in binary (base 2)
+        // ...
+        // TODO: Encode number in hexadecimal (base 16)
+        // ...
+        // TODO: Encode number in any base (2 up to 36)
+        // ...
+        return result
+    }
+    
+    /// Convert given digits in base1 to digits in base2.
+    /// - Parameters:
+    ///   - digits: string representation of number (in base1)
+    ///   - base1: base of given number
+    ///   - base2: base to convert to
+    /// - Returns: string representation of number (in base2)
+    func convert(digits: String, base1: Int, base2: Int) -> String {
+        var result: String = ""
+        // Handle up to base 36 [0-9a-z]
+//        assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
+//        assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
+        // TODO: Convert digits from base 2 to base 16 (and vice versa)
+        // ...
+        // TODO: Convert digits from base 2 to base 10 (and vice versa)
+        // ...
+        // TODO: Convert digits from base 10 to base 16 (and vice versa)
+        // ...
+        // TODO: Convert digits from any base to any base (2 up to 36)
+        // ...
+        return result
+    }
+    
 //MARK: Private Methods
     fileprivate func setupViews() {
         fromPicker.delegate = self
