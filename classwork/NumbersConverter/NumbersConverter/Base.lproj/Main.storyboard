@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NumbersConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-x5-EmG" userLabel="maain Stack View">
+                                <rect key="frame" x="28" y="183.5" width="319" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Base Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cyT-pV-mrb">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rQI-se-xPr" userLabel="from Stack View">
+                                        <rect key="frame" x="0.0" y="70" width="319" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dma-Wv-r6Y">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="AHB-nv-387"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lMB-py-xws">
+                                                <rect key="frame" x="0.0" y="50" width="319" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-g7-03c" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="247" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Base" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zh6-pz-9X4" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                        <rect key="frame" x="255" y="0.0" width="64" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Zh6-pz-9X4" firstAttribute="width" secondItem="lMB-py-xws" secondAttribute="width" multiplier="0.2" id="aJp-Vu-cYX"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lMB-py-xws" firstAttribute="width" secondItem="rQI-se-xPr" secondAttribute="width" id="3uZ-0a-Nej"/>
+                                            <constraint firstItem="dma-Wv-r6Y" firstAttribute="width" secondItem="rQI-se-xPr" secondAttribute="width" id="Rkc-JZ-00d"/>
+                                            <constraint firstAttribute="height" constant="100" id="nLW-OH-F4N"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KSa-xO-Hto" userLabel="to Stack View">
+                                        <rect key="frame" x="0.0" y="200" width="319" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-EK-QH8">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rkb-Ct-jk3">
+                                                <rect key="frame" x="0.0" y="50" width="319" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8hd-te-JkJ" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="247" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Base" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="b7H-8P-8gi" customClass="UnderlinedTextField" customModule="NumbersConverter" customModuleProvider="target">
+                                                        <rect key="frame" x="255" y="0.0" width="64" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="b7H-8P-8gi" firstAttribute="width" secondItem="Rkb-Ct-jk3" secondAttribute="width" multiplier="0.2" id="Qqf-TJ-4So"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Rkb-Ct-jk3" firstAttribute="width" secondItem="KSa-xO-Hto" secondAttribute="width" id="Aom-vC-4RN"/>
+                                            <constraint firstItem="hZv-EK-QH8" firstAttribute="width" secondItem="KSa-xO-Hto" secondAttribute="width" id="JgY-Dm-uel"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KSa-xO-Hto" firstAttribute="height" secondItem="rQI-se-xPr" secondAttribute="height" id="28i-EX-0Bs"/>
+                                    <constraint firstItem="hZv-EK-QH8" firstAttribute="height" secondItem="dma-Wv-r6Y" secondAttribute="height" id="5Iv-AJ-uCJ"/>
+                                    <constraint firstItem="rQI-se-xPr" firstAttribute="width" secondItem="Ve3-x5-EmG" secondAttribute="width" id="DVp-ts-5M8"/>
+                                    <constraint firstItem="KSa-xO-Hto" firstAttribute="width" secondItem="rQI-se-xPr" secondAttribute="width" id="FTf-kl-rhn"/>
+                                    <constraint firstItem="cyT-pV-mrb" firstAttribute="width" secondItem="Ve3-x5-EmG" secondAttribute="width" id="Kkl-UN-W4n"/>
+                                    <constraint firstAttribute="height" constant="300" id="RC2-XE-yWT"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ve3-x5-EmG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Mge-7K-0Vn"/>
+                            <constraint firstItem="Ve3-x5-EmG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="eRQ-R8-f97"/>
+                            <constraint firstItem="Ve3-x5-EmG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="z4v-So-smn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="fromBaseTextField" destination="Zh6-pz-9X4" id="bmW-b0-phu"/>
+                        <outlet property="fromNumTextField" destination="oXa-g7-03c" id="RLE-bf-N9O"/>
+                        <outlet property="toBaseTextField" destination="b7H-8P-8gi" id="y4q-GD-9ps"/>
+                        <outlet property="toNumTextField" destination="8hd-te-JkJ" id="Vrv-RE-xmh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
