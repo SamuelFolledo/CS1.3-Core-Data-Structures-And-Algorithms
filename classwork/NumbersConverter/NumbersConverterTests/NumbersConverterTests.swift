@@ -10,10 +10,10 @@ import XCTest
 @testable import NumbersConverter
 
 //class NumbersConverterTests: XCTestCase {
-//    
+////    let decode = ViewController().decodeNumber
 //    func test_decode_binary() {
 ////        XCTAssertEqual(<#T##expression1: Equatable##Equatable#>, <#T##expression2: Equatable##Equatable#>)
-//        
+//
 //        assert decode("0", 2) == 0
 //        assert decode("1", 2) == 1
 //        assert decode("10", 2) == 2
@@ -31,7 +31,7 @@ import XCTest
 //        assert decode("1110", 2) == 14
 //        assert decode("1111", 2) == 15
 //    }
-//    
+//
 //    func test_decode_decimal() {
 //        assert decode("5", 10) == 5
 //        assert decode("9", 10) == 9
@@ -46,7 +46,7 @@ import XCTest
 //        assert decode("13579", 10) == 13579
 //        assert decode("24680", 10) == 24680
 //    }
-//    
+//
 //    func test_decode_hexadecimal() {
 //        assert decode("a", 16) == 10
 //        assert decode("f", 16) == 15
@@ -61,7 +61,7 @@ import XCTest
 //        assert decode("deadbeef", 16) == 3735928559
 //        assert decode("f007ba11", 16) == 4027038225
 //    }
-//    
+//
 //    func test_decode_10() {
 //        assert decode("10", 2) == 2
 //        assert decode("10", 4) == 4
@@ -72,7 +72,7 @@ import XCTest
 //        assert decode("10", 32) == 32
 //        assert decode("10", 36) == 36
 //    }
-//    
+//
 //    func test_decode_1010() {
 //        assert decode("1010", 2) == 10
 //        assert decode("1010", 4) == 68
@@ -83,7 +83,7 @@ import XCTest
 //        assert decode("1010", 32) == 32800
 //        assert decode("1010", 36) == 46692
 //    }
-//    
+//
 //    func test_decode_101101() {
 //        assert decode("101101", 2) == 45
 //        assert decode("101101", 4) == 1105
@@ -94,9 +94,9 @@ import XCTest
 //        assert decode("101101", 32) == 33588225
 //        assert decode("101101", 36) == 60514129
 //    }
-//    
-//    
-//    
+//
+//
+//
 //    func test_encode_binary() {
 //        //assert encode(0, 2) == "0"  # Should "" be valid?
 //        assert encode(1, 2) == "1"
@@ -115,7 +115,7 @@ import XCTest
 //        assert encode(14, 2) == "1110"
 //        assert encode(15, 2) == "1111"
 //    }
-//    
+//
 //    func test_encode_decimal() {
 //        //    assert encode(0, 10) == "0"  # Should "" be valid?
 //        assert encode(5, 10) == "5"
@@ -130,7 +130,7 @@ import XCTest
 //        assert encode(13579, 10) == "13579"
 //        assert encode(24680, 10) == "24680"
 //    }
-//    
+//
 //    func test_encode_hexadecimal() {
 //        assert encode(10, 16) == "a"
 //        assert encode(15, 16) == "f"
@@ -145,7 +145,7 @@ import XCTest
 //        assert encode(3735928559, 16) == "deadbeef"
 //        assert encode(4027038225, 16) == "f007ba11"
 //    }
-//    
+//
 //    func test_encode_1234() {
 //        assert encode(1234, 2) == "10011010010"
 //        assert encode(1234, 3) == "1200201"
@@ -156,7 +156,7 @@ import XCTest
 //        assert encode(1234, 16) == "4d2"
 //        assert encode(1234, 32) == "16i"
 //    }
-//    
+//
 //    func test_encode_248975() {
 //        assert encode(248975, 2) == "111100110010001111"
 //        assert encode(248975, 4) == "330302033"
@@ -167,7 +167,7 @@ import XCTest
 //        assert encode(248975, 32) == "7j4f"
 //        assert encode(248975, 36) == "5c3z"
 //    }
-//    
+//
 //    func test_encode_into_10() {
 //        assert encode(2, 2) == "10"
 //        assert encode(4, 4) == "10"
@@ -178,7 +178,7 @@ import XCTest
 //        assert encode(32, 32) == "10"
 //        assert encode(36, 36) == "10"
 //    }
-//    
+//
 //    func test_encode_into_1010() {
 //        assert encode(10, 2) == "1010"
 //        assert encode(68, 4) == "1010"
@@ -189,7 +189,7 @@ import XCTest
 //        assert encode(32800, 32) == "1010"
 //        assert encode(46692, 36) == "1010"
 //    }
-//    
+//
 //    func test_encode_into_101101() {
 //        assert encode(45, 2) == "101101"
 //        assert encode(1105, 4) == "101101"
@@ -200,7 +200,7 @@ import XCTest
 //        assert encode(33588225, 32) == "101101"
 //        assert encode(60514129, 36) == "101101"
 //    }
-//    
+//
 //    func test_convert_from_binary() {
 //        assert convert("1101", 2, 3) == "111"
 //        assert convert("1101", 2, 4) == "31"
@@ -215,7 +215,7 @@ import XCTest
 //        assert convert("101010", 2, 32) == "1a"
 //        assert convert("101010", 2, 36) == "16"
 //    }
-//    
+//
 //    func test_convert_to_binary() {
 //        assert convert("111", 3, 2) == "1101"
 //        assert convert("31", 4, 2) == "1101"
@@ -230,7 +230,7 @@ import XCTest
 //        assert convert("101", 32, 2) == "10000000001"
 //        assert convert("101", 36, 2) == "10100010001"
 //    }
-//    
+//
 //    func test_convert_hexadecimal_to_decimal() {
 //        assert convert("a", 16, 10) == "10"
 //        assert convert("f", 16, 10) == "15"
@@ -245,7 +245,7 @@ import XCTest
 //        assert convert("deadbeef", 16, 10) == "3735928559"
 //        assert convert("f007ba11", 16, 10) == "4027038225"
 //    }
-//    
+//
 //    func test_convert_decimal_to_hexadecimal() {
 //        assert convert("10", 10, 16) == "a"
 //        assert convert("15", 10, 16) == "f"
@@ -260,7 +260,7 @@ import XCTest
 //        assert convert("3735928559", 10, 16) == "deadbeef"
 //        assert convert("4027038225", 10, 16) == "f007ba11"
 //    }
-//    
+//
 //    func test_convert_hexadecimal_to_binary() {
 //        assert convert("a", 16, 2) == "1010"
 //        assert convert("b", 16, 2) == "1011"
@@ -273,7 +273,7 @@ import XCTest
 //        assert convert("ea62", 16, 2) == "1110101001100010"
 //        assert convert("fb73", 16, 2) == "1111101101110011"
 //    }
-//    
+//
 //    func test_convert_binary_to_hexadecimal() {
 //        assert convert("1010", 2, 16) == "a"
 //        assert convert("1011", 2, 16) == "b"
@@ -286,6 +286,6 @@ import XCTest
 //        assert convert("1110101001100010", 2, 16) == "ea62"
 //        assert convert("1111101101110011", 2, 16) == "fb73"
 //    }
-//    
-//    
+//
+//
 //}

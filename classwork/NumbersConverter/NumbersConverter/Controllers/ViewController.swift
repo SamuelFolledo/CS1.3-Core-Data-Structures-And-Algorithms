@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     ///   - digits: string representation of number (in given base)
     ///   - base: base of given number
     /// - Returns: integer representation of number (in base 10)
-    func decode(digits: String, base: Int) -> String {
+    func decodeNumbers(digits: String, base: Int) -> String {
         var result: String = ""
         // TODO: Decode digits from binary (base 2)
         // ...
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
     ///   - number: integer representation of number (in base 10)
     ///   - base: base to convert to
     /// - Returns: string representation of number (in given base)
-    func encode(number: String, base: Int) -> String {
+    func encodeNumbers(number: String, base: Int) -> String {
         var result: String = ""
         // Handle unsigned numbers only for now
 //        assert number >= 0, 'number is negative: {}'.format(number)
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     ///   - base1: base of given number
     ///   - base2: base to convert to
     /// - Returns: string representation of number (in base2)
-    func convert(digits: String, base1: Int, base2: Int) -> String {
+    func convertNumbers(digits: String, base1: Int, base2: Int) -> String {
         var result: String = ""
         // Handle up to base 36 [0-9a-z]
 //        assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
