@@ -58,13 +58,13 @@ class ViewController: UIViewController {
     fileprivate func setupNumTextFields() {
         //fromNum
         fromNumTextField.delegate = self
-        fromNumTextField.keyboardType = .numberPad
+        fromNumTextField.keyboardType = .default
         fromNumTextField.clearButtonMode = .always
         fromNumTextField.text = String(0)
         fromNumTextField.inputAccessoryView = keyboardToolBar //add toolBar
         //toNum
         toNumTextField.delegate = self
-        toNumTextField.keyboardType = .numberPad
+        toNumTextField.keyboardType = .default
         toNumTextField.clearButtonMode = .always
         toNumTextField.text = String(0)
         toNumTextField.inputAccessoryView = keyboardToolBar //add toolBar
