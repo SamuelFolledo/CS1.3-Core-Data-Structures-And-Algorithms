@@ -28,20 +28,20 @@ Monday and Wednesday at 2:30–5:20pm(Section A) or Tuesday & Thursday at some t
 
 | Class | Date&nbsp;by&nbsp;Section | Review of Prior Topic         | New Topic & Challenges            | Quiz or Deliverable Due               |
 |:-----:|:-------------------------:|:------------------------------|:----------------------------------|:--------------------------------------|
-|  1 | A: Mon, March 30 <br> B: Tue, March 31 | N/A                           | [Number Bases][]                  | N/A                                   |
-|  2 | A: Wed, April 1 <br> B: Thu, April 2   | [Number Bases Review][]       | [Recursion & Search Algorithms][] | N/A                                   |
-|  3 | A:  Mon, April 6 <br> B: Tue, April 7  | [Search Algorithms Review][]  | [String Algorithms][]             | Quiz: 1                   |
-|  4 | A: Wed, April 8   <br> B: Thu, April 9   | [String Algorithms Review][]  | [Arrays & Linked Lists][]         | [Due]: Number Bases & Search Algorithms |
-|  5 | A: Mon, April 13   <br> B:  Tue, April 14   | [Linked Lists Review][]       | [Lists, Stacks & Queues][]        | N/A              |
-|  6 | A: Wed, April 15 <br> B: Thu, April 16  | [Stacks & Queues Review][]    | [Technical Article][] Kickoff     | [Due]: Palindromes & String Algorithms  |
-|  7 | A: Mon, April 20  <br> B: Tue, April 21  | Technical Article Peer Review | [Maps & Hash Tables][]            | Quiz: 2        |
-|  8 | A: Wed, April 22  <br> B: Thu, April 23 | [Hash Tables Review][]        | [Trees & Binary Search Trees][]   | [Due]: Lists, Stacks & Queues           |
-|  9 | A: Mon, April 27  <br> B: Tue, April 28 | [Binary Search Trees Review][]| [Tree Traversals][]               | N/A                    |
-| 10 | A: Wed, April 29  <br> B: Thu, April 30  | [Tree Traversals Review][]    | Lab Day            | [Due]: Hash Tables & Article Draft      |
-| 11 | A: Mon, May 4  <br> B: Tue, May 5  | N/A                           | [Sets][]       | [Due]: Trees & Tree Traversals          |
-| 12 | A: Wed, May 6    <br> B: Thu, May 7   | [Sets Review][]               | [Word Jumble Project][]           |    Quiz: 3        |
-| 13 | A: Mon, May 11  <br> B: Tue, May 12  | Lab Day| N/A         | [Due]: Sets & Set Operations <br> |
-| 14 | A: Wed, May 13   <br> B: Thu, May 14  | Lab Day | N/A           | [Due]: Article & Word Jumble Project |
+|  1 | Tue, March 31 | N/A                           | [Number Bases](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/NumberBases.md)                  | N/A                                   |
+|  2 | Thu, April 2   | [Number Bases Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/NumberBases.md#code-review-in-pairs-25-min)       | [Recursion & Search Algorithms](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/RecursionSearchAlgorithms.md) | N/A                                   |
+|  3 | Tue, April 7  | [Search Algorithms Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/RecursionSearchAlgorithms.md#code-review--presentations-80-min)  | [String Algorithms](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/StringAlgorithms.md)             | Quiz: 1                   |
+|  4 | Thu, April 9   | [String Algorithms Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/StringAlgorithms.md#code-review--presentations-80-min)  | [Arrays & Linked Lists](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/ArraysLinkedLists.md)         | [Due](https://www.gradescope.com/courses/104809): Number Bases & Search Algorithms |
+|  5 | Tue, April 14   | [Linked Lists Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/ArraysLinkedLists.md)       | [Lists, Stacks & Queues](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/ListsStacksQueues.md)        | N/A              |
+|  6 | Thu, April 16  | [Stacks & Queues Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/ListsStacksQueues.md#activity---stacks-and-queues-worksheet---overview--15-min)    | [Technical Article](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/ReadMe.md#Technical-Article) Kickoff     | [Due](https://www.gradescope.com/courses/104809): Palindromes & String Algorithms  |
+|  7 | Tue, April 21  | Technical Article Peer Review | [Maps & Hash Tables](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/MapsHashTables.md)            | Quiz: 2        |
+|  8 | Thu, April 23 | [Hash Tables Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/MapsHashTables.md#activity---drawing-a-hashtable--35-min)        | [Trees & Binary Search Trees](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/TreesBinarySearchTrees.md)   | [Due](https://www.gradescope.com/courses/104809): Lists, Stacks & Queues           |
+|  9 | Tue, April 28 | [Binary Search Trees Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/TreesBinarySearchTrees.md) | [Tree Traversals](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/TreeTraversals.md)               | N/A                    |
+| 10 | Thu, April 30  | [Tree Traversals Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/TreeTraversals.md#code-review-80-min)    | Lab Day            | [Due](https://www.gradescope.com/courses/104809): Hash Tables & Article Draft      |
+| 11 | Tue, May 5  | N/A                           | [Sets](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/SetsCircularBuffers.md)       | [Due](https://www.gradescope.com/courses/104809): Trees & Tree Traversals          |
+| 12 | Thu, May 7   | [Sets Review](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/Lessons/SetsCircularBuffers.md)               | [Word Jumble Project]()           |    Quiz: 3        |
+| 13 | Tue, May 12  | Lab Day| N/A         | [Due](https://www.gradescope.com/courses/104809): Sets & Set Operations <br> |
+| 14 | Thu, May 14  | Lab Day | N/A           | [Due](https://www.gradescope.com/courses/104809): Article & Word Jumble Project |
 
 [Number Bases]: Lessons/NumberBases.md
 [Number Bases Review]: Lessons/NumberBases.md#code-review-in-pairs-25-min
@@ -94,13 +94,13 @@ Each lesson has an associated set of coding challenges with starter code and uni
 ### Technical Article
 
 Students will also write a technical article about a topic related to course content to deepen their understanding, improve their technical writing skills, and demonstrate mastery of computer science, which will bolster their online presence as knowledgeable and proficient software engineers.
-Refer to the [technical article guidelines][] for more information about article requirements and detailed tips on how to select a topic related to computer science, research the topic, create an outline, write your article, cite all sources of borrowed material, and provide feedback to other students.
+Refer to the [technical article guidelines](https://make.sc/cs13-article-guidelines) for more information about article requirements and detailed tips on how to select a topic related to computer science, research the topic, create an outline, write your article, cite all sources of borrowed material, and provide feedback to other students.
 
 [technical article guidelines]: https://make.sc/cs13-article-guidelines
 
 ### Submissions
 
-Completion of coding challenges will be assessed according to the associated [coding challenge rubrics][].
+Completion of coding challenges will be assessed according to the associated [coding challenge rubrics](https://drive.google.com/open?id=1QMm-cc0jieP-sLXOsXGxNPupz5FYYP0C).
 
 To pass each submission, students must earn the required number of points or higher indicated on the associated rubric. Note that all points within one submission are fungible (that is, interchangeable) and so if one portion of work is below the "Met All Expectations" column of the rubric, another portion of work submitted can "Exceed Expectations" (generally by completing stretch challenges) to earn an extra point to make up for the missing one. Therefore, it's wise to complete stretch challenges as "insurance" in case some work does not meet expectations.
 
