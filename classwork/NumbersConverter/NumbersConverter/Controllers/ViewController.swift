@@ -182,14 +182,14 @@ extension ViewController: UITextFieldDelegate {
         switch textField {
         case fromNumTextField:
             switch textField.text?.trimmedString() {
-            case "", "0":
+            case "0": //if text field was 0 at the beginning, remove the 0
                 textField.text = ""
             default:
                 break
             }
         case toNumTextField:
             switch textField.text?.trimmedString() {
-            case "", "0":
+            case "0":
                 textField.text = ""
             default:
                 break
