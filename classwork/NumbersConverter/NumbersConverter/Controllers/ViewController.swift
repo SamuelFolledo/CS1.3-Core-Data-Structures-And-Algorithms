@@ -201,19 +201,34 @@ extension ViewController: UITextFieldDelegate {
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        switch textField {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let tf = textField as? UnderlinedTextField else { return } //make sure it's an underlined tf
+        tf.text = textField.text?.uppercased() //forces all inputs to be capitalized
+        switch tf {
         case fromNumTextField:
-            switch textField.text?.trimmedString() {
+            checkNumberInput(tf: tf, base: bases[selectedIndex.from]) //check if input is valid
+        case toNumTextField:
+            checkNumberInput(tf: tf, base: bases[selectedIndex.to]) //check if input is valid
+        default:
+            break
+        }
+    }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let tf = textField as? UnderlinedTextField else { return } //make sure it's an underlined tf
+        switch tf {
+        case fromNumTextField:
+            switch tf.text?.trimmedString() {
             case "0": //if text field was 0 at the beginning, remove the 0
-                textField.text = ""
+                tf.text = ""
             default:
                 break
             }
         case toNumTextField:
-            switch textField.text?.trimmedString() {
+            switch tf.text?.trimmedString() {
             case "0":
-                textField.text = ""
+                tf.text = ""
             default:
                 break
             }
