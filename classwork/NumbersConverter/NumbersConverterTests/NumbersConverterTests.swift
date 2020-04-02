@@ -9,283 +9,284 @@
 import XCTest
 @testable import NumbersConverter
 
-//class NumbersConverterTests: XCTestCase {
-////    let decode = ViewController().decodeNumber
-//    func test_decode_binary() {
-////        XCTAssertEqual(<#T##expression1: Equatable##Equatable#>, <#T##expression2: Equatable##Equatable#>)
-//
-//        assert decode("0", 2) == 0
-//        assert decode("1", 2) == 1
-//        assert decode("10", 2) == 2
-//        assert decode("11", 2) == 3
-//        assert decode("100", 2) == 4
-//        assert decode("101", 2) == 5
-//        assert decode("110", 2) == 6
-//        assert decode("111", 2) == 7
-//        assert decode("1000", 2) == 8
-//        assert decode("1001", 2) == 9
-//        assert decode("1010", 2) == 10
-//        assert decode("1011", 2) == 11
-//        assert decode("1100", 2) == 12
-//        assert decode("1101", 2) == 13
-//        assert decode("1110", 2) == 14
-//        assert decode("1111", 2) == 15
-//    }
-//
-//    func test_decode_decimal() {
-//        assert decode("5", 10) == 5
-//        assert decode("9", 10) == 9
-//        assert decode("10", 10) == 10
-//        assert decode("25", 10) == 25
-//        assert decode("64", 10) == 64
-//        assert decode("99", 10) == 99
-//        assert decode("123", 10) == 123
-//        assert decode("789", 10) == 789
-//        assert decode("2345", 10) == 2345
-//        assert decode("6789", 10) == 6789
-//        assert decode("13579", 10) == 13579
-//        assert decode("24680", 10) == 24680
-//    }
-//
-//    func test_decode_hexadecimal() {
-//        assert decode("a", 16) == 10
-//        assert decode("f", 16) == 15
-//        assert decode("99", 16) == 153
-//        assert decode("ff", 16) == 255
-//        assert decode("ace", 16) == 2766
-//        assert decode("cab", 16) == 3243
-//        assert decode("bead", 16) == 48813
-//        assert decode("face", 16) == 64206
-//        assert decode("c0ffee", 16) == 12648430
-//        assert decode("facade", 16) == 16435934
-//        assert decode("deadbeef", 16) == 3735928559
-//        assert decode("f007ba11", 16) == 4027038225
-//    }
-//
-//    func test_decode_10() {
-//        assert decode("10", 2) == 2
-//        assert decode("10", 4) == 4
-//        assert decode("10", 8) == 8
-//        assert decode("10", 10) == 10
-//        assert decode("10", 16) == 16
-//        assert decode("10", 25) == 25
-//        assert decode("10", 32) == 32
-//        assert decode("10", 36) == 36
-//    }
-//
-//    func test_decode_1010() {
-//        assert decode("1010", 2) == 10
-//        assert decode("1010", 4) == 68
-//        assert decode("1010", 8) == 520
-//        assert decode("1010", 10) == 1010
-//        assert decode("1010", 16) == 4112
-//        assert decode("1010", 25) == 15650
-//        assert decode("1010", 32) == 32800
-//        assert decode("1010", 36) == 46692
-//    }
-//
-//    func test_decode_101101() {
-//        assert decode("101101", 2) == 45
-//        assert decode("101101", 4) == 1105
-//        assert decode("101101", 8) == 33345
-//        assert decode("101101", 10) == 101101
-//        assert decode("101101", 16) == 1052929
-//        assert decode("101101", 25) == 9781876
-//        assert decode("101101", 32) == 33588225
-//        assert decode("101101", 36) == 60514129
-//    }
-//
-//
-//
-//    func test_encode_binary() {
-//        //assert encode(0, 2) == "0"  # Should "" be valid?
-//        assert encode(1, 2) == "1"
-//        assert encode(2, 2) == "10"
-//        assert encode(3, 2) == "11"
-//        assert encode(4, 2) == "100"
-//        assert encode(5, 2) == "101"
-//        assert encode(6, 2) == "110"
-//        assert encode(7, 2) == "111"
-//        assert encode(8, 2) == "1000"
-//        assert encode(9, 2) == "1001"
-//        assert encode(10, 2) == "1010"
-//        assert encode(11, 2) == "1011"
-//        assert encode(12, 2) == "1100"
-//        assert encode(13, 2) == "1101"
-//        assert encode(14, 2) == "1110"
-//        assert encode(15, 2) == "1111"
-//    }
-//
-//    func test_encode_decimal() {
-//        //    assert encode(0, 10) == "0"  # Should "" be valid?
-//        assert encode(5, 10) == "5"
-//        assert encode(10, 10) == "10"
-//        assert encode(25, 10) == "25"
-//        assert encode(64, 10) == "64"
-//        assert encode(99, 10) == "99"
-//        assert encode(123, 10) == "123"
-//        assert encode(789, 10) == "789"
-//        assert encode(2345, 10) == "2345"
-//        assert encode(6789, 10) == "6789"
-//        assert encode(13579, 10) == "13579"
-//        assert encode(24680, 10) == "24680"
-//    }
-//
-//    func test_encode_hexadecimal() {
-//        assert encode(10, 16) == "a"
-//        assert encode(15, 16) == "f"
-//        assert encode(153, 16) == "99"
-//        assert encode(255, 16) == "ff"
-//        assert encode(2766, 16) == "ace"
-//        assert encode(3243, 16) == "cab"
-//        assert encode(48813, 16) == "bead"
-//        assert encode(64206, 16) == "face"
-//        assert encode(12648430, 16) == "c0ffee"
-//        assert encode(16435934, 16) == "facade"
-//        assert encode(3735928559, 16) == "deadbeef"
-//        assert encode(4027038225, 16) == "f007ba11"
-//    }
-//
-//    func test_encode_1234() {
-//        assert encode(1234, 2) == "10011010010"
-//        assert encode(1234, 3) == "1200201"
-//        assert encode(1234, 4) == "103102"
-//        assert encode(1234, 5) == "14414"
-//        assert encode(1234, 8) == "2322"
-//        assert encode(1234, 10) == "1234"
-//        assert encode(1234, 16) == "4d2"
-//        assert encode(1234, 32) == "16i"
-//    }
-//
-//    func test_encode_248975() {
-//        assert encode(248975, 2) == "111100110010001111"
-//        assert encode(248975, 4) == "330302033"
-//        assert encode(248975, 8) == "746217"
-//        assert encode(248975, 10) == "248975"
-//        assert encode(248975, 16) == "3cc8f"
-//        assert encode(248975, 25) == "fn90"
-//        assert encode(248975, 32) == "7j4f"
-//        assert encode(248975, 36) == "5c3z"
-//    }
-//
-//    func test_encode_into_10() {
-//        assert encode(2, 2) == "10"
-//        assert encode(4, 4) == "10"
-//        assert encode(8, 8) == "10"
-//        assert encode(10, 10) == "10"
-//        assert encode(16, 16) == "10"
-//        assert encode(25, 25) == "10"
-//        assert encode(32, 32) == "10"
-//        assert encode(36, 36) == "10"
-//    }
-//
-//    func test_encode_into_1010() {
-//        assert encode(10, 2) == "1010"
-//        assert encode(68, 4) == "1010"
-//        assert encode(520, 8) == "1010"
-//        assert encode(1010, 10) == "1010"
-//        assert encode(4112, 16) == "1010"
-//        assert encode(15650, 25) == "1010"
-//        assert encode(32800, 32) == "1010"
-//        assert encode(46692, 36) == "1010"
-//    }
-//
-//    func test_encode_into_101101() {
-//        assert encode(45, 2) == "101101"
-//        assert encode(1105, 4) == "101101"
-//        assert encode(33345, 8) == "101101"
-//        assert encode(101101, 10) == "101101"
-//        assert encode(1052929, 16) == "101101"
-//        assert encode(9781876, 25) == "101101"
-//        assert encode(33588225, 32) == "101101"
-//        assert encode(60514129, 36) == "101101"
-//    }
-//
-//    func test_convert_from_binary() {
-//        assert convert("1101", 2, 3) == "111"
-//        assert convert("1101", 2, 4) == "31"
-//        assert convert("1101", 2, 8) == "15"
-//        assert convert("1101", 2, 10) == "13"
-//        assert convert("101010", 2, 3) == "1120"
-//        assert convert("101010", 2, 4) == "222"
-//        assert convert("101010", 2, 8) == "52"
-//        assert convert("101010", 2, 10) == "42"
-//        assert convert("101010", 2, 16) == "2a"
-//        assert convert("101010", 2, 25) == "1h"
-//        assert convert("101010", 2, 32) == "1a"
-//        assert convert("101010", 2, 36) == "16"
-//    }
-//
-//    func test_convert_to_binary() {
-//        assert convert("111", 3, 2) == "1101"
-//        assert convert("31", 4, 2) == "1101"
-//        assert convert("15", 8, 2) == "1101"
-//        assert convert("13", 10, 2) == "1101"
-//        assert convert("101", 3, 2) == "1010"
-//        assert convert("101", 4, 2) == "10001"
-//        assert convert("101", 8, 2) == "1000001"
-//        assert convert("101", 10, 2) == "1100101"
-//        assert convert("101", 16, 2) == "100000001"
-//        assert convert("101", 25, 2) == "1001110010"
-//        assert convert("101", 32, 2) == "10000000001"
-//        assert convert("101", 36, 2) == "10100010001"
-//    }
-//
-//    func test_convert_hexadecimal_to_decimal() {
-//        assert convert("a", 16, 10) == "10"
-//        assert convert("f", 16, 10) == "15"
-//        assert convert("99", 16, 10) == "153"
-//        assert convert("ff", 16, 10) == "255"
-//        assert convert("ace", 16, 10) == "2766"
-//        assert convert("cab", 16, 10) == "3243"
-//        assert convert("bead", 16, 10) == "48813"
-//        assert convert("face", 16, 10) == "64206"
-//        assert convert("c0ffee", 16, 10) == "12648430"
-//        assert convert("facade", 16, 10) == "16435934"
-//        assert convert("deadbeef", 16, 10) == "3735928559"
-//        assert convert("f007ba11", 16, 10) == "4027038225"
-//    }
-//
-//    func test_convert_decimal_to_hexadecimal() {
-//        assert convert("10", 10, 16) == "a"
-//        assert convert("15", 10, 16) == "f"
-//        assert convert("153", 10, 16) == "99"
-//        assert convert("255", 10, 16) == "ff"
-//        assert convert("2766", 10, 16) == "ace"
-//        assert convert("3243", 10, 16) == "cab"
-//        assert convert("48813", 10, 16) == "bead"
-//        assert convert("64206", 10, 16) == "face"
-//        assert convert("12648430", 10, 16) == "c0ffee"
-//        assert convert("16435934", 10, 16) == "facade"
-//        assert convert("3735928559", 10, 16) == "deadbeef"
-//        assert convert("4027038225", 10, 16) == "f007ba11"
-//    }
-//
-//    func test_convert_hexadecimal_to_binary() {
-//        assert convert("a", 16, 2) == "1010"
-//        assert convert("b", 16, 2) == "1011"
-//        assert convert("c", 16, 2) == "1100"
-//        assert convert("d", 16, 2) == "1101"
-//        assert convert("e", 16, 2) == "1110"
-//        assert convert("f", 16, 2) == "1111"
-//        assert convert("c840", 16, 2) == "1100100001000000"
-//        assert convert("d951", 16, 2) == "1101100101010001"
-//        assert convert("ea62", 16, 2) == "1110101001100010"
-//        assert convert("fb73", 16, 2) == "1111101101110011"
-//    }
-//
-//    func test_convert_binary_to_hexadecimal() {
-//        assert convert("1010", 2, 16) == "a"
-//        assert convert("1011", 2, 16) == "b"
-//        assert convert("1100", 2, 16) == "c"
-//        assert convert("1101", 2, 16) == "d"
-//        assert convert("1110", 2, 16) == "e"
-//        assert convert("1111", 2, 16) == "f"
-//        assert convert("1100100001000000", 2, 16) == "c840"
-//        assert convert("1101100101010001", 2, 16) == "d951"
-//        assert convert("1110101001100010", 2, 16) == "ea62"
-//        assert convert("1111101101110011", 2, 16) == "fb73"
-//    }
-//
-//
-//}
+class NumbersConverterTests: XCTestCase {
+    var controller: ViewController = ViewController()
+//    var decode: ((String) -> String)?
+    
+    override func setUp() {
+    }
+    
+    func test_decode_binary() {
+        XCTAssertEqual(controller.decodeNumbers(digits: "0", base: 2), 0)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1", base: 2), 1)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 2), 2)
+        XCTAssertEqual(controller.decodeNumbers(digits: "11", base: 2), 3)
+        XCTAssertEqual(controller.decodeNumbers(digits: "100", base: 2), 4)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101", base: 2), 5)
+        XCTAssertEqual(controller.decodeNumbers(digits: "110", base: 2), 6)
+        XCTAssertEqual(controller.decodeNumbers(digits: "111", base: 2), 7)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1000", base: 2), 8)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1001", base: 2), 9)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 2), 10)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1011", base: 2), 11)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1100", base: 2), 12)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1101", base: 2), 13)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1110", base: 2), 14)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1111", base: 2), 15)
+    }
+
+    func test_decode_decimal() {
+        XCTAssertEqual(controller.decodeNumbers(digits: "5", base: 10), 5)
+        XCTAssertEqual(controller.decodeNumbers(digits: "9", base: 10), 9)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 10), 10)
+        XCTAssertEqual(controller.decodeNumbers(digits: "25", base: 10), 25)
+        XCTAssertEqual(controller.decodeNumbers(digits: "64", base: 10), 64)
+        XCTAssertEqual(controller.decodeNumbers(digits: "99", base: 10), 99)
+        XCTAssertEqual(controller.decodeNumbers(digits: "123", base: 10), 123)
+        XCTAssertEqual(controller.decodeNumbers(digits: "789", base: 10), 789)
+        XCTAssertEqual(controller.decodeNumbers(digits: "2345", base: 10), 2345)
+        XCTAssertEqual(controller.decodeNumbers(digits: "6789", base: 10), 6789)
+        XCTAssertEqual(controller.decodeNumbers(digits: "13579", base: 10), 13579)
+        XCTAssertEqual(controller.decodeNumbers(digits: "24680", base: 10), 24680)
+    }
+
+    func test_decode_hexadecimal() {
+        XCTAssertEqual(controller.decodeNumbers(digits: "a", base: 16), 10)
+        XCTAssertEqual(controller.decodeNumbers(digits: "f", base: 16), 15)
+        XCTAssertEqual(controller.decodeNumbers(digits: "99", base: 16), 153)
+        XCTAssertEqual(controller.decodeNumbers(digits: "ff", base: 16), 255)
+        XCTAssertEqual(controller.decodeNumbers(digits: "ace", base: 16), 2766)
+        XCTAssertEqual(controller.decodeNumbers(digits: "cab", base: 16), 3243)
+        XCTAssertEqual(controller.decodeNumbers(digits: "bead", base: 16), 48813)
+        XCTAssertEqual(controller.decodeNumbers(digits: "face", base: 16), 64206)
+        XCTAssertEqual(controller.decodeNumbers(digits: "c0ffee", base: 16), 12648430)
+        XCTAssertEqual(controller.decodeNumbers(digits: "facade", base: 16), 16435934)
+        XCTAssertEqual(controller.decodeNumbers(digits: "deadbeef", base: 16), 3735928559)
+        XCTAssertEqual(controller.decodeNumbers(digits: "f007ba11", base: 16), 4027038225)
+    }
+
+    func test_decode_10() {
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 2), 2)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 4), 4)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 8), 8)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 10), 10)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 16), 16)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 25), 25)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 32), 32)
+        XCTAssertEqual(controller.decodeNumbers(digits: "10", base: 36), 36)
+    }
+
+    func test_decode_1010() {
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 2), 10)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 4), 68)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 8), 520)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 10), 1010)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 16), 4112)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 25), 15650)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 32), 32800)
+        XCTAssertEqual(controller.decodeNumbers(digits: "1010", base: 36), 46692)
+    }
+
+    func test_decode_101101() {
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 2), 45)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 4), 1105)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 8), 33345)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 10), 101101)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 16), 1052929)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 25), 9781876)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 32), 33588225)
+        XCTAssertEqual(controller.decodeNumbers(digits: "101101", base: 36), 60514129)
+    }
+
+    func test_encode_binary() {
+        //assert encode(0, 2), "0"  # Should "" be valid?
+        XCTAssertEqual(controller.encodeNumbers(number: 1, base: 2), "1")
+        XCTAssertEqual(controller.encodeNumbers(number: 2, base: 2), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 3, base: 2), "11")
+        XCTAssertEqual(controller.encodeNumbers(number: 4, base: 2), "100")
+        XCTAssertEqual(controller.encodeNumbers(number: 5, base: 2), "101")
+        XCTAssertEqual(controller.encodeNumbers(number: 6, base: 2), "110")
+        XCTAssertEqual(controller.encodeNumbers(number: 7, base: 2), "111")
+        XCTAssertEqual(controller.encodeNumbers(number: 8, base: 2), "1000")
+        XCTAssertEqual(controller.encodeNumbers(number: 9, base: 2), "1001")
+        XCTAssertEqual(controller.encodeNumbers(number: 10, base: 2), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 11, base: 2), "1011")
+        XCTAssertEqual(controller.encodeNumbers(number: 12, base: 2), "1100")
+        XCTAssertEqual(controller.encodeNumbers(number: 13, base: 2), "1101")
+        XCTAssertEqual(controller.encodeNumbers(number: 14, base: 2), "1110")
+        XCTAssertEqual(controller.encodeNumbers(number: 15, base: 2), "1111")
+    }
+
+    func test_encode_decimal() {
+        //    XCTAssertEqual(controller.encodeNumbers(number: 0, 10), "0"  # Should "" be valid?
+        XCTAssertEqual(controller.encodeNumbers(number: 5, base: 10), "5")
+        XCTAssertEqual(controller.encodeNumbers(number: 10, base: 10), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 25, base: 10), "25")
+        XCTAssertEqual(controller.encodeNumbers(number: 64, base: 10), "64")
+        XCTAssertEqual(controller.encodeNumbers(number: 99, base: 10), "99")
+        XCTAssertEqual(controller.encodeNumbers(number: 123, base: 10), "123")
+        XCTAssertEqual(controller.encodeNumbers(number: 789, base: 10), "789")
+        XCTAssertEqual(controller.encodeNumbers(number: 2345, base: 10), "2345")
+        XCTAssertEqual(controller.encodeNumbers(number: 6789, base: 10), "6789")
+        XCTAssertEqual(controller.encodeNumbers(number: 13579, base: 10), "13579")
+        XCTAssertEqual(controller.encodeNumbers(number: 24680, base: 10), "24680")
+    }
+
+    func test_encode_hexadecimal() {
+        XCTAssertEqual(controller.encodeNumbers(number: 10, base: 16), "a")
+        XCTAssertEqual(controller.encodeNumbers(number: 15, base: 16), "f")
+        XCTAssertEqual(controller.encodeNumbers(number: 153, base: 16), "99")
+        XCTAssertEqual(controller.encodeNumbers(number: 255, base: 16), "ff")
+        XCTAssertEqual(controller.encodeNumbers(number: 2766, base: 16), "ace")
+        XCTAssertEqual(controller.encodeNumbers(number: 3243, base: 16), "cab")
+        XCTAssertEqual(controller.encodeNumbers(number: 48813, base: 16), "bead")
+        XCTAssertEqual(controller.encodeNumbers(number: 64206, base: 16), "face")
+        XCTAssertEqual(controller.encodeNumbers(number: 12648430, base: 16), "c0ffee")
+        XCTAssertEqual(controller.encodeNumbers(number: 16435934, base: 16), "facade")
+        XCTAssertEqual(controller.encodeNumbers(number: 3735928559, base: 16), "deadbeef")
+        XCTAssertEqual(controller.encodeNumbers(number: 4027038225, base: 16), "f007ba11")
+    }
+
+    func test_encode_1234() {
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 2), "10011010010")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 3), "1200201")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 4), "103102")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 5), "14414")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 8), "2322")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 10), "1234")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 16), "4d2")
+        XCTAssertEqual(controller.encodeNumbers(number: 1234, base: 32), "16i")
+    }
+
+    func test_encode_248975() {
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 2), "111100110010001111")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 4), "330302033")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 8), "746217")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 10), "248975")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 16), "3cc8f")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 25), "fn90")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 32), "7j4f")
+        XCTAssertEqual(controller.encodeNumbers(number: 248975, base: 36), "5c3z")
+    }
+
+    func test_encode_into_10() {
+        XCTAssertEqual(controller.encodeNumbers(number: 2, base: 2), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 4, base: 4), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 8, base: 8), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 10, base: 10), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 16, base: 16), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 25, base: 25), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 32, base: 32), "10")
+        XCTAssertEqual(controller.encodeNumbers(number: 36, base: 36), "10")
+    }
+
+    func test_encode_into_1010() {
+        XCTAssertEqual(controller.encodeNumbers(number: 10, base: 2), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 68, base: 4), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 520, base: 8), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 1010, base: 10), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 4112, base: 16), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 15650, base: 25), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 32800, base: 32), "1010")
+        XCTAssertEqual(controller.encodeNumbers(number: 46692, base: 36), "1010")
+    }
+
+    func test_encode_into_101101() {
+        XCTAssertEqual(controller.encodeNumbers(number: 45, base: 2), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 1105, base: 4), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 33345, base: 8), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 101101, base: 10), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 1052929, base: 16), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 9781876, base: 25), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 33588225, base: 32), "101101")
+        XCTAssertEqual(controller.encodeNumbers(number: 60514129, base: 36), "101101")
+    }
+
+    func test_convert_from_binary() {
+//        func convertNumbers(digits: String, base1: Int, base2: Int) -> String {
+        XCTAssertEqual(controller.convertNumbers(digits: "", base1: -1, base2: -1), "")
+        XCTAssertEqual(controller.convertNumbers(digits: "1101", base1: 2, base2: 3), "111")
+        XCTAssertEqual(controller.convertNumbers(digits: "1101", base1: 2, base2: 4), "31")
+        XCTAssertEqual(controller.convertNumbers(digits: "1101", base1: 2, base2: 8), "15")
+        XCTAssertEqual(controller.convertNumbers(digits: "1101", base1: 2, base2: 10), "13")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 3), "1120")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 4), "222")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 8), "52")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 10), "42")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 16), "2a")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 25), "1h")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 32), "1a")
+        XCTAssertEqual(controller.convertNumbers(digits: "101010", base1: 2, base2: 36), "16")
+    }
+
+    func test_convert_to_binary() {
+        XCTAssertEqual(controller.convertNumbers(digits: "111", base1: 3, base2: 2), "1101")
+        XCTAssertEqual(controller.convertNumbers(digits: "31", base1: 4, base2: 2), "1101")
+        XCTAssertEqual(controller.convertNumbers(digits: "15", base1: 8, base2: 2), "1101")
+        XCTAssertEqual(controller.convertNumbers(digits: "13", base1: 10, base2: 2), "1101")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 3, base2: 2), "1010")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 4, base2: 2), "10001")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 8, base2: 2), "1000001")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 10, base2: 2), "1100101")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 16, base2: 2), "100000001")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 25, base2: 2), "1001110010")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 32, base2: 2), "10000000001")
+        XCTAssertEqual(controller.convertNumbers(digits: "101", base1: 36, base2: 2), "10100010001")
+    }
+
+    func test_convert_hexadecimal_to_decimal() {
+        XCTAssertEqual(controller.convertNumbers(digits: "a", base1: 16, base2: 10), "10")
+        XCTAssertEqual(controller.convertNumbers(digits: "f", base1: 16, base2: 10), "15")
+        XCTAssertEqual(controller.convertNumbers(digits: "99", base1: 16, base2: 10), "153")
+        XCTAssertEqual(controller.convertNumbers(digits: "ff", base1: 16, base2: 10), "255")
+        XCTAssertEqual(controller.convertNumbers(digits: "ace", base1: 16, base2: 10), "2766")
+        XCTAssertEqual(controller.convertNumbers(digits: "cab", base1: 16, base2: 10), "3243")
+        XCTAssertEqual(controller.convertNumbers(digits: "bead", base1: 16, base2: 10), "48813")
+        XCTAssertEqual(controller.convertNumbers(digits: "face", base1: 16, base2: 10), "64206")
+        XCTAssertEqual(controller.convertNumbers(digits: "c0ffee", base1: 16, base2: 10), "12648430")
+        XCTAssertEqual(controller.convertNumbers(digits: "facade", base1: 16, base2: 10), "16435934")
+        XCTAssertEqual(controller.convertNumbers(digits: "deadbeef", base1: 16, base2: 10), "3735928559")
+        XCTAssertEqual(controller.convertNumbers(digits: "f007ba11", base1: 16, base2: 10), "4027038225")
+    }
+
+    func test_convert_decimal_to_hexadecimal() {
+        XCTAssertEqual(controller.convertNumbers(digits: "10", base1: 10, base2: 16), "a")
+        XCTAssertEqual(controller.convertNumbers(digits: "15", base1: 10, base2: 16), "f")
+        XCTAssertEqual(controller.convertNumbers(digits: "153", base1: 10, base2: 16), "99")
+        XCTAssertEqual(controller.convertNumbers(digits: "255", base1: 10, base2: 16), "ff")
+        XCTAssertEqual(controller.convertNumbers(digits: "2766", base1: 10, base2: 16), "ace")
+        XCTAssertEqual(controller.convertNumbers(digits: "3243", base1: 10, base2: 16), "cab")
+        XCTAssertEqual(controller.convertNumbers(digits: "48813", base1: 10, base2: 16), "bead")
+        XCTAssertEqual(controller.convertNumbers(digits: "64206", base1: 10, base2: 16), "face")
+        XCTAssertEqual(controller.convertNumbers(digits: "12648430", base1: 10, base2: 16), "c0ffee")
+        XCTAssertEqual(controller.convertNumbers(digits: "16435934", base1: 10, base2: 16), "facade")
+        XCTAssertEqual(controller.convertNumbers(digits: "3735928559", base1: 10, base2: 16), "deadbeef")
+        XCTAssertEqual(controller.convertNumbers(digits: "4027038225", base1: 10, base2: 16), "f007ba11")
+    }
+
+    func test_convert_hexadecimal_to_binary() {
+        XCTAssertEqual(controller.convertNumbers(digits: "a", base1: 16, base2: 2), "1010")
+        XCTAssertEqual(controller.convertNumbers(digits: "b", base1: 16, base2: 2), "1011")
+        XCTAssertEqual(controller.convertNumbers(digits: "c", base1: 16, base2: 2), "1100")
+        XCTAssertEqual(controller.convertNumbers(digits: "d", base1: 16, base2: 2), "1101")
+        XCTAssertEqual(controller.convertNumbers(digits: "e", base1: 16, base2: 2), "1110")
+        XCTAssertEqual(controller.convertNumbers(digits: "f", base1: 16, base2: 2), "1111")
+        XCTAssertEqual(controller.convertNumbers(digits: "c840", base1: 16, base2: 2), "1100100001000000")
+        XCTAssertEqual(controller.convertNumbers(digits: "d951", base1: 16, base2: 2), "1101100101010001")
+        XCTAssertEqual(controller.convertNumbers(digits: "ea62", base1: 16, base2: 2), "1110101001100010")
+        XCTAssertEqual(controller.convertNumbers(digits: "fb73", base1: 16, base2: 2), "1111101101110011")
+    }
+
+    func test_convert_binary_to_hexadecimal() {
+        XCTAssertEqual(controller.convertNumbers(digits: "1010", base1: 2, base2: 16), "a")
+        XCTAssertEqual(controller.convertNumbers(digits: "1011", base1: 2, base2: 16), "b")
+        XCTAssertEqual(controller.convertNumbers(digits: "1100", base1: 2, base2: 16), "c")
+        XCTAssertEqual(controller.convertNumbers(digits: "1101", base1: 2, base2: 16), "d")
+        XCTAssertEqual(controller.convertNumbers(digits: "1110", base1: 2, base2: 16), "e")
+        XCTAssertEqual(controller.convertNumbers(digits: "1111", base1: 2, base2: 16), "f")
+        XCTAssertEqual(controller.convertNumbers(digits: "1100100001000000", base1: 2, base2: 16), "c840")
+        XCTAssertEqual(controller.convertNumbers(digits: "1101100101010001", base1: 2, base2: 16), "d951")
+        XCTAssertEqual(controller.convertNumbers(digits: "1110101001100010", base1: 2, base2: 16), "ea62")
+        XCTAssertEqual(controller.convertNumbers(digits: "1111101101110011", base1: 2, base2: 16), "fb73")
+    }
+}
