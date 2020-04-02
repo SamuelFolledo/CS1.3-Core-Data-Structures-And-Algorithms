@@ -16,8 +16,8 @@ enum Base: Int {
 ///returns list of possible characters for that base
     func getImpossibleCharacters() -> [String] {
         var impossibleChars: [String] = []
-        let iterationCount = Base.allCases.count - self.rawValue //get length impossible characters
-        for i in 0 ... iterationCount {
+        let iterationCount = Base.allCases.count - self.rawValue + 1 //get length impossible characters
+        for i in 0 ..< iterationCount {
             impossibleChars.append(kPOSSIBLECHARACTERS[i]) //append each impossible characters
         }
         return impossibleChars
