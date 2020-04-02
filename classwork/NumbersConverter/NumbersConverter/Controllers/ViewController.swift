@@ -195,10 +195,8 @@ class ViewController: UIViewController {
 /// - Returns: true if valid, and should encode or decode
     fileprivate func isValidNumber(text: String, base: Base) -> Bool {
         let impossibleCharacters: [String] = base.getImpossibleCharacters()
-        print("Base \(base.rawValue)'s impossile chars \(impossibleCharacters)")
         let isFrom: Bool = text == fromNumTextField.text ? true : false
         for char in impossibleCharacters where text.contains(char) { //if text contains one of he impossible characters, then it is not valid
-//            print(char, " in ", text, " is not a valid for base ", base.rawValue)
             if isFrom {
                 fromLabel.text = "\(char) is not a valid for base \(base.rawValue)"
                 fromLabel.textColor = .red
@@ -232,10 +230,8 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == fromPicker { //picker's title for each row
-//            selectedIndex.from = row //update title based on selectedIndex base on the row
             return getPickerTitle(row: row)
         } else if pickerView == toPicker {
-//            selectedIndex.to = row
             return getPickerTitle(row: row)
         }
         return ""
