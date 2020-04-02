@@ -194,10 +194,26 @@ class ViewController: UIViewController {
 ///   - base: from/to baseTextField's base
 /// - Returns: true if valid, and should encode or decode
     fileprivate func isValidNumber(text: String, base: Base) -> Bool {
-        let possibleCharacters = base.getImpossibleCharacters()
-        for char in possibleCharacters where text.contains(char) { //if text contains one of he impossible characters, then it is not valid
-            print(char, " in ", text, " is not a valid for base ", base.rawValue)
+        let impossibleCharacters: [String] = base.getImpossibleCharacters()
+        print("Base \(base.rawValue)'s impossile chars \(impossibleCharacters)")
+        let isFrom: Bool = text == fromNumTextField.text ? true : false
+        for char in impossibleCharacters where text.contains(char) { //if text contains one of he impossible characters, then it is not valid
+//            print(char, " in ", text, " is not a valid for base ", base.rawValue)
+            if isFrom {
+                fromLabel.text = "\(char) is not a valid for base \(base.rawValue)"
+                fromLabel.textColor = .red
+            } else {
+                toLabel.text = "\(char) is not a valid for base \(base.rawValue)"
+                toLabel.textColor = .red
+            }
             return false
+        }
+        if isFrom {
+            fromLabel.text = "From:"
+            fromLabel.textColor = .black
+        } else {
+            toLabel.text = "To: "
+            toLabel.textColor = .black
         }
         return true
     }
