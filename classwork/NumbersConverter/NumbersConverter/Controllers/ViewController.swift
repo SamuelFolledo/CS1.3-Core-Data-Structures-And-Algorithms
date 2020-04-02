@@ -198,10 +198,10 @@ class ViewController: UIViewController {
         let isFrom: Bool = text == fromNumTextField.text ? true : false
         for char in impossibleCharacters where text.contains(char) { //if text contains one of he impossible characters, then it is not valid
             if isFrom {
-                fromLabel.text = "\(char) is not a valid for base \(base.rawValue)"
+                fromLabel.text = "\(char) is not valid for base \(base.rawValue)"
                 fromLabel.textColor = .red
             } else {
-                toLabel.text = "\(char) is not a valid for base \(base.rawValue)"
+                toLabel.text = "\(char) is not valid for base \(base.rawValue)"
                 toLabel.textColor = .red
             }
             return false
