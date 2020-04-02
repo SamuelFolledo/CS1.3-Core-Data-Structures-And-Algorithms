@@ -11,11 +11,14 @@ import UIKit
 class ViewController: UIViewController {
 //MARK: Properties
     var bases: [Base] = []
-//MARK: IBOutlets
+    var selectedIndex: (from: Int, to: Int) = (from: 8, to: 0)
+//MARK: IBOutlets and Views properties
     @IBOutlet weak var fromNumTextField: UnderlinedTextField!
     @IBOutlet weak var fromBaseTextField: UnderlinedTextField!
     @IBOutlet weak var toNumTextField: UnderlinedTextField!
+    @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toBaseTextField: UnderlinedTextField!
+    @IBOutlet weak var toLabel: UILabel!
     lazy var keyboardToolBar: UIToolbar = {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -26,7 +29,6 @@ class ViewController: UIViewController {
     }()
     var fromPicker = UIPickerView()
     var toPicker = UIPickerView()
-    var selectedIndex: (from: Int, to: Int) = (from: 8, to: 0)
     
 //MARK: App Life Cycle
     override func viewDidLoad() {

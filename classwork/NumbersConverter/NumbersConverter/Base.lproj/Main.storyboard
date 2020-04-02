@@ -165,8 +165,10 @@
                     </view>
                     <connections>
                         <outlet property="fromBaseTextField" destination="Zh6-pz-9X4" id="bmW-b0-phu"/>
+                        <outlet property="fromLabel" destination="dma-Wv-r6Y" id="5Rh-A4-S5w"/>
                         <outlet property="fromNumTextField" destination="oXa-g7-03c" id="RLE-bf-N9O"/>
                         <outlet property="toBaseTextField" destination="b7H-8P-8gi" id="y4q-GD-9ps"/>
+                        <outlet property="toLabel" destination="hZv-EK-QH8" id="7aY-ZD-dBC"/>
                         <outlet property="toNumTextField" destination="8hd-te-JkJ" id="Vrv-RE-xmh"/>
                     </connections>
                 </viewController>
