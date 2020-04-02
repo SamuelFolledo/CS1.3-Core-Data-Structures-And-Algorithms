@@ -143,7 +143,7 @@ class ViewController: UIViewController {
         toBaseTextField.inputAccessoryView = keyboardToolBar
         toBaseTextField.inputView = toPicker //make pickerView the input
         toBaseTextField.clearButtonMode = .never
-        let toBaseText = bases[selectedIndex.to].rawValue
+        let toBaseText = String(bases[selectedIndex.to].rawValue)
         toBaseTextField.text = String(toBaseText)
         toPicker.selectRow(selectedIndex.to, inComponent: 0, animated: true)
     }
@@ -181,7 +181,7 @@ class ViewController: UIViewController {
     
 ///checks if textField.text is a valid input
     fileprivate func checkNumberInput(tf: UnderlinedTextField, base: Base) {
-        if !isValidNumber(text: tf.text!, base: bases[selectedIndex.from]) { //if input is invalid, turn it red, maybe show error as well
+        if !isValidNumber(text: tf.text!, base: base) { //if input is invalid, turn it red, maybe show error as well
             tf.setUnderlineColor(color: .red)
         } else { //if no errors on input, return back to default color
             tf.setDefaultUnderlineColor()
@@ -232,10 +232,10 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == fromPicker { //picker's title for each row
-            selectedIndex.from = row //update title based on selectedIndex base on the row
+//            selectedIndex.from = row //update title based on selectedIndex base on the row
             return getPickerTitle(row: row)
         } else if pickerView == toPicker {
-            selectedIndex.to = row
+//            selectedIndex.to = row
             return getPickerTitle(row: row)
         }
         return ""
@@ -292,7 +292,6 @@ extension ViewController: UITextFieldDelegate {
             break
         }
     }
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let tf = textField as? UnderlinedTextField else { return } //make sure it's an underlined tf
