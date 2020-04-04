@@ -194,7 +194,7 @@ class ViewController: UIViewController {
 ///   - base: from/to baseTextField's base
 /// - Returns: true if valid, and should encode or decode
     fileprivate func isValidNumber(text: String, base: Base) -> Bool {
-        let impossibleCharacters: [String] = base.getImpossibleCharacters()
+        let impossibleCharacters: [Character] = base.getImpossibleCharacters()
         let isFrom: Bool = text == fromNumTextField.text ? true : false
         for char in impossibleCharacters where text.contains(char) { //if text contains one of he impossible characters, then it is not valid
             if isFrom {
