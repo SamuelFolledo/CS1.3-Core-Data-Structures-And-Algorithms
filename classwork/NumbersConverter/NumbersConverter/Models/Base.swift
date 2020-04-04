@@ -8,7 +8,7 @@
 
 import Foundation
 
-let kPOSSIBLECHARACTERS: [Character] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+let kPOSSIBLECHARACTERS: [Character] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 enum Base: Int {
     case two = 2, three = 3, four = 4, five = 5, six = 6, seven = 7, eight = 8, nine = 9, ten = 10, eleven = 11, twelve = 12, thirteen = 13, fourteen = 14, fifteen = 15, sixteen = 16, seventeen = 17, eighteen = 18, nineteen = 19, twenty = 20, twentyOne = 21, twentyTwo = 22, twentyThree = 23, twentyFour = 24, twentyFive = 25, twentySix = 26, twentySeven = 27, twentyEight = 28, twentyNine = 29, thirty = 30, thirtyOne = 31, thirtyTwo = 32, thirtyThree = 33, thirtyFour = 34, thirtyFive = 35, thirtysix = 36
@@ -25,7 +25,7 @@ enum Base: Int {
     
 ///takes a character and returns its base 10 value
     func getAsBase10(ofChar: Character) -> Int {
-        for char in kPOSSIBLECHARACTERS.enumerated() where char.element.uppercased() == ofChar.uppercased() { //loop through each possibleChars, and return the index which is its base 10 value
+        for char in kPOSSIBLECHARACTERS.enumerated() where char.element.lowercased() == ofChar.lowercased() { //loop through each possibleChars, and return the index which is its base 10 value
             return char.offset
         }
         return -1

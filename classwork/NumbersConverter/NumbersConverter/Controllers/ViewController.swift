@@ -282,7 +282,7 @@ extension ViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let tf = textField as? UnderlinedTextField else { return } //make sure it's an underlined tf
-        tf.text = textField.text?.uppercased() //forces all inputs to be capitalized
+        tf.text = textField.text?.lowercased() //forces all inputs to be capitalized
         switch tf {
         case fromNumTextField:
             checkNumberInput(tf: tf, base: bases[selectedIndex.from]) //check if input is valid
