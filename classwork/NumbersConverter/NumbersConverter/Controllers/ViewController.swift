@@ -48,20 +48,22 @@ class ViewController: UIViewController {
     }
     
 //MARK: To Do
-    /// Decode given digits in given base to number in base 10.
+    /// Decode given digits and given base to number in base 10.
     /// - Parameters:
     ///   - digits: string representation of number (in given base)
     ///   - base: base of given number
     /// - Returns: integer representation of number (in base 10)
     func decodeNumbers(digits: String, base: Int) -> Int {
-        var result: Int = -1
-        // TODO: Decode digits from binary (base 2)
-        // ...
-        // TODO: Decode digits from hexadecimal (base 16)
-        // ...
-        // TODO: Decode digits from any base (2 up to 36)
-        // ...
-        return result
+        var digitsAsBase10: Int = 0
+        let digitsArray = Array(digits).reversed() //turn digits to array of characters
+        guard let digitsBase = Base(rawValue: base) else { print("Base given cannot be converted to Base"); return -1 } //convert base to Base model
+        var powerCounter = 0 //power
+        for char in digitsArray { //loop through each character
+            let charAsBase10 = digitsBase.getAsBase10(ofChar: char) //convert character to base 10
+            digitsAsBase10 += charAsBase10 * Int(pow(Double(base), Double(powerCounter))) //multiply charAsBase10 and (base to the power of powerCounter)
+            powerCounter += 1 //increment powerCounter
+        }
+        return digitsAsBase10
     }
 
     
@@ -185,6 +187,8 @@ class ViewController: UIViewController {
             tf.setUnderlineColor(color: .red)
         } else { //if no errors on input, return back to default color
             tf.setDefaultUnderlineColor()
+//            convertNumbers(digits: "100", base1: 2, base2: 10)
+            decodeNumbers(digits: tf.text!, base: base.rawValue)
         }
     }
     
