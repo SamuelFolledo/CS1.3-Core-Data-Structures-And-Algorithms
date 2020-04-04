@@ -54,9 +54,10 @@ class ViewController: UIViewController {
     ///   - base: base of given number
     /// - Returns: integer representation of number (in base 10)
     func decodeNumbers(digits: String, base: Int) -> Int {
+        if base < 2 || base > 36 { print("base error"); return -1 }
         var digitsAsBase10: Int = 0
         let digitsArray = Array(digits).reversed() //turn digits to array of characters
-        guard let digitsBase = Base(rawValue: base) else { print("Base given cannot be converted to Base"); return -1 } //convert base to Base model
+        guard let digitsBase = Base(rawValue: base) else { return -1 } //convert base to Base model
         var powerCounter = 0 //power
         for char in digitsArray { //loop through each character
             let charAsBase10 = digitsBase.getAsBase10(ofChar: char) //convert character to base 10
