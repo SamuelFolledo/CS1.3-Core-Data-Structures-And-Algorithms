@@ -25,7 +25,7 @@ enum Base: Int {
     
 ///takes a character and returns its base 10 value
     func getAsBase10(ofChar: Character) -> Int {
-        for char in kPOSSIBLECHARACTERS.enumerated() where char.element == ofDigit { //loop through each possibleChars, and return the index which is its base 10 value
+        for char in kPOSSIBLECHARACTERS.enumerated() where char.element == ofChar { //loop through each possibleChars, and return the index which is its base 10 value
             return char.offset
         }
         return -1
