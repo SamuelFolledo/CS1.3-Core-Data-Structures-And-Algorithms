@@ -1,11 +1,11 @@
 # [CS1.3:](https://github.com/Make-School-Courses/CS-1.3-Core-Data-Structures) Classworks and Homeworks
 
 ## Table Of Contents:
-1. [](#day1)
-2. [](#day2)
-3. [](#day3)
-4. [](#day4)
-5. [](#day5)
+1. [Number Bases](#day1)
+2. [Recursion & Search Algorithms](#day2)
+3. [String Algorithms](#day3)
+4. [Arrays & Linked Lists](#day4)
+5. [Lists, Stacks & Queues](#day5)
 6. [](#day6)
 7. [](#day7)
 8. [](#day8)
@@ -21,23 +21,33 @@
 ---
 
 <a name="day1"></a>
-## Day 1. [](https://make-school-courses.github.io/CS-1.2-Intro-Data-Structures/#/Lessons/RandomStrings)
+## Day 1. [Number Bases](https://github.com/Make-School-Courses/CS-1.3-Core-Data-Structures/blob/master/Lessons/NumberBases.md)
 ### Topics
+- Be able to explain the concept of representing numbers in different formats
+- Be able to understand the differences between base 10, base 2, and base 16 number systems
+- Be able to explain how to convert between various number bases at a high level
 
-### CW
+### HW
+
+- [Numbers Converter Project](https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/tree/master/classwork/NumbersConverter)
+- Numbers Converter Live Demo
+<img src="https://github.com/SamuelFolledo/CS1.3-Core-Data-Structures-And-Algorithms/blob/master/static/gifs/numbersConverterDemo.gif" width="294" height="587">
 
 ---
 
 <a name="day2"></a>
-## 2. []()
+## 2. [Recursion & Search Algorithms](https://github.com/Make-School-Courses/CS-1.3-Core-Data-Structures/blob/master/Lessons/RecursionSearchAlgorithms.md)
 ### Topics
+- Understand fundamental search algorithms
+- Understand iterative vs. recursive
+- Be able to explain recursion at a high level
 
 ### CW: 
 
 ---
 
 <a name="day3"></a>
-## Day 3. []()
+## Day 3. [String Algorithms](https://github.com/Make-School-Courses/CS-1.3-Core-Data-Structures/blob/master/Lessons/StringAlgorithms.md)
 ### Topics
 
 ### CW:
@@ -45,7 +55,7 @@
 ---
 
 <a name="day4"></a>
-## Day 4. []()
+## Day 4. [Arrays & Linked Lists](https://github.com/Make-School-Courses/CS-1.3-Core-Data-Structures/blob/master/Lessons/ArraysLinkedLists.md)
 ### Topics
 
 ### CW: 
@@ -53,7 +63,7 @@
 ---
 
 <a name="day5></a>
-## Day 5. []()
+## Day 5. [Lists, Stacks & Queues](https://github.com/Make-School-Courses/CS-1.3-Core-Data-Structures/blob/master/Lessons/ListsStacksQueues.md)
 ### Topics
 
 ### CW:
