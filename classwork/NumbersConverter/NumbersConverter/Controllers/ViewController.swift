@@ -180,8 +180,13 @@ class ViewController: UIViewController {
             tf.setUnderlineColor(color: .red)
         } else { //if no errors on input, return back to default color
             tf.setDefaultUnderlineColor()
-//            convertNumbers(digits: "100", base1: 2, base2: 10)
-            decodeNumbers(digits: tf.text!, base: base.rawValue)
+            if tf == fromNumTextField {
+                let convertedDigits: String = convertNumbers(digits: tf.text!, base1: Int(fromBaseTextField.text!)!, base2: Int(toBaseTextField.text!)!)
+                toNumTextField.text = convertedDigits
+            } else if tf == toNumTextField {
+                let convertedDigits: String = convertNumbers(digits: tf.text!, base1: Int(toBaseTextField.text!)!, base2: Int(fromBaseTextField.text!)!)
+                fromNumTextField.text = convertedDigits
+            }
         }
     }
     
