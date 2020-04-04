@@ -74,16 +74,16 @@ class ViewController: UIViewController {
     ///   - base: base to convert to
     /// - Returns: string representation of number (in given base)
     func encodeNumbers(number: Int, base: Int) -> String {
-        var result: String = ""
-        // Handle unsigned numbers only for now
-//        assert number >= 0, 'number is negative: {}'.format(number)
-        // TODO: Encode number in binary (base 2)
-        // ...
-        // TODO: Encode number in hexadecimal (base 16)
-        // ...
-        // TODO: Encode number in any base (2 up to 36)
-        // ...
-        return result
+        if base < 2 || base > 36 { print("base error"); return "" }
+        var encodedNumber: String = ""
+        var currentQuotient: Int = number
+        repeat {
+            let quotientAndRemainder: (quotient: Int, remainder: Int) = currentQuotient.quotientAndRemainder(dividingBy: base) //get quotient and remainder
+            let decodedRemainder: String = String(kPOSSIBLECHARACTERS[quotientAndRemainder.remainder]) //converts remainder to character
+            encodedNumber = decodedRemainder + encodedNumber //add decodedRemainder at the beginning of result
+            currentQuotient = quotientAndRemainder.quotient
+        } while currentQuotient > 0 //while quotient > 0, keep dividing
+        return encodedNumber
     }
     
     /// Convert given digits in base1 to digits in base2.
