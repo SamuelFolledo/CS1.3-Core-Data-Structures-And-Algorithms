@@ -94,17 +94,9 @@ class ViewController: UIViewController {
     /// - Returns: string representation of number (in base2)
     func convertNumbers(digits: String, base1: Int, base2: Int) -> String {
         var result: String = ""
-        // Handle up to base 36 [0-9a-z]
-//        assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
-//        assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-        // TODO: Convert digits from base 2 to base 16 (and vice versa)
-        // ...
-        // TODO: Convert digits from base 2 to base 10 (and vice versa)
-        // ...
-        // TODO: Convert digits from base 10 to base 16 (and vice versa)
-        // ...
-        // TODO: Convert digits from any base to any base (2 up to 36)
-        // ...
+        if base1 < 2 || base1 > 36 || base2 < 2 || base2 > 36  { print("base error"); return result }
+        let decodedDigits = decodeNumbers(digits: digits, base: base1) //decode digits to base1
+        result = encodeNumbers(number: decodedDigits, base: base2) //encode decodedDigits to base2
         return result
     }
     
