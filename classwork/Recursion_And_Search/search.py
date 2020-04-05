@@ -56,14 +56,48 @@ def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
-    left = left
-    right = right
-    middle = (left + right) // 2
-    if array[middle] == item:
-        return middle
-    if array[middle] < item: #if middle item is less than item, make left the middle +1
-        left = middle + 1
-        return binary_search_recursive(array, item, left, right)
-    elif array[middle] > item:
-        right = middle - 1
-        return binary_search_recursive(array, item, left, right)
+    if left == None:
+        left = 0
+    if right == None:
+        right = len(array) - 1
+        
+    if left <= right:
+        middle = (left + right) // 2
+
+        if array[middle] == item:
+            return middle
+
+        if array[middle] < item:
+            return binary_search_recursive(array, item, middle+1, right)
+        elif array[middle] > item:
+            return binary_search_recursive(array[:middle], item, left, middle-1)
+    return None
+    # if left == None:
+    #     left = 0
+    # if right == None:
+    #     right = len(array) - 1
+    
+    # if left <= right:
+    #     middle = (left + right) // 2
+    #     if array[middle] == item:
+    #         return middle
+    #     if array[middle] < item:
+    #         left = middle + 1
+    #         return binary_search_recursive(array, item, left, right)
+    #     elif array[middle] > item:
+    #         right = middle + 1
+    #         return binary_search_recursive(array, item, left, right)
+    # else:
+    #     return None
+
+
+    # while left <= right:
+    #     middle = (left + right) // 2
+    #     if array[middle] == item:
+    #         return middle
+    #     if array[middle] < item: #if middle item is less than item, make left the middle +1
+    #         left = middle + 1
+    #         return binary_search_recursive(array, item, left, right)
+    #     elif array[middle] > item:
+    #         right = middle - 1
+    #         return binary_search_recursive(array, item, left, right)
