@@ -17,11 +17,11 @@ def factorial_iterative(n):
     # pass
     # once implemented, change factorial (above) to call factorial_iterative
     # to verify that your iterative implementation passes all tests
-    product = 1 #initialize as 1 because anything multiplied by 0 is = 0
+    factorial = 1 #initialize as 1 because anything multiplied by 0 is = 0
     for i in range(1, n+1): #+1 because range is exclusive
-        product *= i #1*1, 1*2, 2*3, 6*4, 24*5, 120*6,...
-        print(i, "=", product)
-    return product
+        factorial *= i #1*1, 1*2, 2*3, 6*4, 24*5, 120*6,...
+        print(i, "=", factorial)
+    return factorial
 
 
 def factorial_recursive(n):
@@ -47,3 +47,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    factorial_iterative(5)
