@@ -22,6 +22,11 @@ def is_palindrome_iterative(text):
     pass
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
+    text_array = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
+    for i in range(len(text_array)):
+        if text_array[i] != text_array[len(text_array) - 1 - i]:
+            return False
+    return True
 
 
 def is_palindrome_recursive(text, left=None, right=None):
