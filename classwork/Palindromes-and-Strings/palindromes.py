@@ -36,12 +36,13 @@ def is_palindrome_recursive(text, left=None, right=None):
     # once implemented, change is_palindrome to call is_palindrome_recursive
     # to verify that your iterative implementation passes all tests
     text_array = "".join(c.lower() for c in text if c.isalpha())
+    half = int(len(text_array) // 2 + (len(text_array) % 2 > 0))
     if left == None:
         left = 0
     if right == None:
         right = len(text_array) - 1
 
-    if left < right:
+    if left < half:
         if text_array[left] == text_array[right]:
             return is_palindrome_recursive(text, left+1, right-1)
         else:
