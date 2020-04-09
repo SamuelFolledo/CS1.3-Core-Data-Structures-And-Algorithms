@@ -23,7 +23,8 @@ def is_palindrome_iterative(text):
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
     text_array = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
-    for i in range(len(text_array)):
+    half = int(len(text_array) // 2 + (len(text_array) % 2 > 0)) #gets half length of array and round up if array length is odd in pure python way
+    for i in range(half):
         if text_array[i] != text_array[len(text_array) - 1 - i]:
             return False
     return True
