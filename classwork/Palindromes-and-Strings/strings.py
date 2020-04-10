@@ -5,8 +5,7 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
-    contains = contains_iteratively(text, pattern)
-    return contains
+    return contains_iteratively(text, pattern)
     # return contains_recursively(text, pattern)
 
 def contains_iteratively(text, pattern):
@@ -22,10 +21,10 @@ def contains_iteratively(text, pattern):
             pattern_index = 0
         if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
             # print(f"\tMATCH {text_arr[i]} and {pattern_arr[pattern_index]} {len(pattern_arr)}")
-            if pattern_index == len(pattern_arr)-1: #if the entire pattern char matches, return True
-                # print(f"\t\tFULL match! {text_arr[i]}={pattern_arr[pattern_index]}")
-                return True
             pattern_index += 1
+        if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+            # print(f"\t\tFULL match! {text_arr[i]}={pattern_arr[pattern_index]}")
+            return True
     return False
 
 def contains_recursively(text, pattern):
