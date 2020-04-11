@@ -6,9 +6,7 @@ def contains(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
     # return contains_iteratively(text, pattern)
-    contains = contains_recursively(text, pattern)
-    print(text,"&",pattern,"===",contains,"\n")
-    return contains
+    return contains_recursively(text, pattern)
 
 def contains_iteratively(text, pattern):
     text_arr = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
@@ -24,9 +22,9 @@ def contains_iteratively(text, pattern):
         if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
             # print(f"\tMATCH {text_arr[i]} and {pattern_arr[pattern_index]} {len(pattern_arr)}")
             pattern_index += 1
-        if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
-            # print(f"\t\tFULL match! {text_arr[i]}={pattern_arr[pattern_index]}")
-            return True
+            if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+                # print(f"\t\tFULL match! {text_arr[i]}={pattern_arr[pattern_index]}")
+                return True
     return False
 
 def contains_recursively(text, pattern, text_index=0, pattern_index=0):
@@ -38,7 +36,6 @@ def contains_recursively(text, pattern, text_index=0, pattern_index=0):
         return False
     if text_index > len(text_arr) - 1: #if text_index go out of bounds, return False
         return False
-
     # print(f"DOES {text} match {pattern}?")
     if text_arr[text_index] != pattern_arr[pattern_index]: #check if characters does not match, pattern_index = 0
         # print(f"NOPE {text_arr[text_index]} != {pattern_arr[pattern_index]}")
