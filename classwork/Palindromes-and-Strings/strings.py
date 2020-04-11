@@ -55,8 +55,8 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
-    index = find_index_iteratively(text, pattern)
-    # index = find_index_recursively(text, pattern)
+    # index = find_index_iteratively(text, pattern)
+    index = find_index_recursively(text, pattern)
     print(f"\n'{pattern}' is in {text} at index {index}")
     return index
 
@@ -77,8 +77,20 @@ def find_index_iteratively(text, pattern):
                 return i + 1 - pattern_index #return (i + 1) - pattern_index
     return None
 
-def find_index_recursively(text, pattern):
-    return None
+def find_index_recursively(text, pattern, text_index=0, pattern_index=0):
+    text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
+    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
+    if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index, but first is 0
+        return 0
+    if text_index > len(text_arr) - 1: #if text_index go out of bounds, then we reached the end without finding index
+        return None
+    if text_arr[text_index] != pattern_arr[pattern_index]: #check if characters does not match, pattern_index = 0
+        pattern_index = 0
+    if text_arr[text_index] == pattern_arr[pattern_index]: #if text char match with pattern char, move to next character
+        pattern_index += 1
+        if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+            return text_index + 1 - pattern_index #return (i + 1) - pattern_index  
+    return find_index_recursively(text, pattern, text_index+1, pattern_index)
 
 def find_all_indexes(text, pattern):
     """Return a list of starting indexes of all occurrences of pattern in text,
