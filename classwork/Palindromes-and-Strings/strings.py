@@ -55,7 +55,30 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+    index = find_index_iteratively(text, pattern)
+    # index = find_index_recursively(text, pattern)
+    print(f"\n'{pattern}' is in {text} at index {index}")
+    return index
 
+def find_index_iteratively(text, pattern):
+    # if pattern not in text: #makes sure the pattern is in text
+    #     return None
+    text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
+    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
+    pattern_index = 0
+    if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index, but first is 0
+        return 0 #first index
+    for i in range(len(text_arr)): #loop through each char in arr
+        if text_arr[i] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
+            pattern_index = 0
+        if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
+            pattern_index += 1
+            if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+                return i + 1 - pattern_index #return (i + 1) - pattern_index
+    return None
+
+def find_index_recursively(text, pattern):
+    return None
 
 def find_all_indexes(text, pattern):
     """Return a list of starting indexes of all occurrences of pattern in text,
