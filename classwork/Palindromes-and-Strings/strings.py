@@ -5,8 +5,10 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
-    return contains_iteratively(text, pattern)
-    # return contains_recursively(text, pattern)
+    # return contains_iteratively(text, pattern)
+    contains = contains_recursively(text, pattern)
+    print(text,"&",pattern,"===",contains,"\n")
+    return contains
 
 def contains_iteratively(text, pattern):
     text_arr = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
@@ -27,8 +29,28 @@ def contains_iteratively(text, pattern):
             return True
     return False
 
-def contains_recursively(text, pattern):
-    return False
+def contains_recursively(text, pattern, text_index=0, pattern_index=0):
+    text_arr = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
+    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha()) #turn patterns to array
+    if len(pattern_arr) == 0: #handle if pattern_arr is empty, then return true
+        return True
+    elif len(pattern_arr) > len(text_arr): ## error handler if pattern has more character than text..
+        return False
+    if text_index > len(text_arr) - 1: #if text_index go out of bounds, return False
+        return False
+
+    # print(f"DOES {text} match {pattern}?")
+    if text_arr[text_index] != pattern_arr[pattern_index]: #check if characters does not match, pattern_index = 0
+        # print(f"NOPE {text_arr[text_index]} != {pattern_arr[pattern_index]}")
+        pattern_index = 0
+        # return contains_recursively(text, pattern, text_index+1, pattern_index)
+    if text_arr[text_index] == pattern_arr[pattern_index]: #if text char match with pattern char, move to next character
+        # print(f"\tMATCH {text_arr[text_index]} and {pattern_arr[pattern_index]}\t{pattern_index}-{len(pattern_arr)}")
+        pattern_index += 1
+        if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+            # print(f"\t\tFULL match! {text_arr[text_index]}={pattern_arr[pattern_index-1]}")
+            return True    
+    return contains_recursively(text, pattern, text_index+1, pattern_index)
 
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
