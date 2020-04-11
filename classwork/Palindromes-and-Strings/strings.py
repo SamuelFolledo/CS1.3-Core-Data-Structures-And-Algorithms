@@ -98,7 +98,38 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    print(f"\nfor {pattern} in {text}")
+    indexes = find_all_indexes_iteratively(text, pattern)
+    # indexes = find_all_indexes_recursively(text, pattern)
+    print(f"\n\n\t'{pattern}' is in {text} at index {indexes}")
+    return indexes
 
+def find_all_indexes_iteratively(text, pattern):
+    text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
+    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
+    pattern_index = 0
+    indexes = []
+    if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index
+        for i in range(len(text_arr)): #populate indexes by index of text_arr
+            indexes.append(i)
+        return indexes
+    for i in range(len(text_arr)): #loop through each char in arr
+        if text_arr[i] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
+            pattern_index = 0
+        if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
+            pattern_index += 1
+            if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+                indexes.append(i + 1 - pattern_index) #return (i + 1) - pattern_index
+                pattern_index = 0
+                for j in range(len(pattern_arr)): #handles overlaps
+                    if text_arr[i-j] == pattern_arr[pattern_index-j] and len(pattern_arr) > j+1: #to handle overlaps, if pattern_arr[pattern_index - j] is same as text[i-j] and the length of pattern_arr is not past j+1 then increment pattern_index
+                        pattern_index += 1
+                    else:
+                        break
+    return indexes
+
+def find_all_indexes_recursively(text, pattern):
+    return []
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
