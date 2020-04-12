@@ -141,7 +141,6 @@ def test_string_algorithms(text, pattern):
     indexes = find_all_indexes(text, pattern)
     print('find_all_indexes({!r}, {!r}) => {}'.format(text, pattern, indexes))
 
-
 def main():
     """Read command-line arguments and test string searching algorithms."""
     import sys
