@@ -98,22 +98,21 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
-    print(f"\nfor {pattern} in {text}")
-    # indexes = find_all_indexes_iteratively(text, pattern)
-    indexes = find_all_indexes_recursively(text, pattern)
-    print(f"==='{pattern}' is in {text} at indexes {indexes}\n")
-    return indexes
-
-def find_all_indexes_iteratively(text, pattern):
     text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
     pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
-    pattern_index = 0
-    indexes = []
-    if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index
+    if len(pattern_arr) == 0: #if pattern_arr is empty, then indexes is all pattern's indexes
+        indexes = []
         for i in range(len(text_arr)): #populate indexes by index of text_arr
             indexes.append(i)
         return indexes
-    for i in range(len(text_arr)): #loop through each char in arr
+    print(f"\nfor {pattern} in {text}")
+    indexes = find_all_indexes_iteratively(text_arr, pattern_arr, [])
+    # indexes = find_all_indexes_recursively(text_arr, pattern_arr)
+    print(f"==='{pattern}' is in {text} at indexes {indexes}\n")
+    return indexes
+
+def find_all_indexes_iteratively(text_arr, pattern_arr, indexes, pattern_index = 0):
+    for i in range(len(text_arr)): #loop through each char in text_arr
         if text_arr[i] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
             pattern_index = 0
         if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
@@ -128,16 +127,16 @@ def find_all_indexes_iteratively(text, pattern):
                         break
     return indexes
 
-def find_all_indexes_recursively(text, pattern, text_index=0, pattern_index=0, indexes=[]):
-    text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
-    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
+def find_all_indexes_recursively(text_arr, pattern_arr, text_index=0, pattern_index=0, indexes=[]):
+    # text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
+    # pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
     if text_index > len(text_arr) - 1: #if out of bounds, return indexes
         return indexes
-    if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index
-        print("0 length")
-        for i in range(len(text_arr)): #populate indexes by index of text_arr
-            indexes.append(i)
-        return indexes
+    # if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index
+    #     print("0 length")
+    #     for i in range(len(text_arr)): #populate indexes by index of text_arr
+    #         indexes.append(i)
+    #     return indexes
     
     if text_arr[text_index] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
         pattern_index = 0
@@ -170,7 +169,7 @@ def find_all_indexes_recursively(text, pattern, text_index=0, pattern_index=0, i
     #                     pattern_index += 1
     #                 else:
     #                     break
-    return find_all_indexes_recursively(text, pattern, text_index+1, pattern_index, indexes)
+    return find_all_indexes_recursively(text_arr, pattern_arr, text_index+1, pattern_index, indexes)
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
