@@ -99,9 +99,9 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
     print(f"\nfor {pattern} in {text}")
-    indexes = find_all_indexes_iteratively(text, pattern)
-    # indexes = find_all_indexes_recursively(text, pattern)
-    print(f"\n\n\t'{pattern}' is in {text} at index {indexes}")
+    # indexes = find_all_indexes_iteratively(text, pattern)
+    indexes = find_all_indexes_recursively(text, pattern)
+    print(f"==='{pattern}' is in {text} at indexes {indexes}\n")
     return indexes
 
 def find_all_indexes_iteratively(text, pattern):
@@ -128,8 +128,49 @@ def find_all_indexes_iteratively(text, pattern):
                         break
     return indexes
 
-def find_all_indexes_recursively(text, pattern):
-    return []
+def find_all_indexes_recursively(text, pattern, text_index=0, pattern_index=0, indexes=[]):
+    text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
+    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
+    if text_index > len(text_arr) - 1: #if out of bounds, return indexes
+        return indexes
+    if len(pattern_arr) == 0: #if pattern_arr is empty, then it's every index
+        print("0 length")
+        for i in range(len(text_arr)): #populate indexes by index of text_arr
+            indexes.append(i)
+        return indexes
+    
+    if text_arr[text_index] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
+        pattern_index = 0
+
+    if text_arr[text_index] == pattern_arr[pattern_index]: #if text char match with pattern char
+        # print(f"{text_arr[text_index]} = {pattern_arr[pattern_index]}")
+        print(f"{text_arr[text_index]} = {pattern_arr[pattern_index]} AND {pattern_index}={len(pattern_arr)}")
+        pattern_index += 1
+        if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+            print(f"Full match! append {text_index + 1 - pattern_index}")
+            indexes.append(text_index + 1 - pattern_index) #return (i + 1) - pattern_index
+            pattern_index = 0 #reset pattern_index
+            for j in range(len(pattern_arr)): #handles overlaps
+                if text_arr[text_index-j] == pattern_arr[pattern_index-j] and len(pattern_arr) > j+1: #to handle overlaps, if pattern_arr[pattern_index - j] is same as text[i-j] and the length of pattern_arr is not past j+1 then increment pattern_index
+                    print(f"overlaps {text_arr[text_index-j]}")
+                    pattern_index += 1
+                else:
+                    break
+
+    # for i in range(len(text_arr)): #loop through each char in arr
+    #     if text_arr[i] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
+    #         pattern_index = 0
+    #     if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
+    #         pattern_index += 1
+    #         if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
+    #             indexes.append(i + 1 - pattern_index) #return (i + 1) - pattern_index
+    #             pattern_index = 0
+    #             for j in range(len(pattern_arr)): #handles overlaps
+    #                 if text_arr[i-j] == pattern_arr[pattern_index-j] and len(pattern_arr) > j+1: #to handle overlaps, if pattern_arr[pattern_index - j] is same as text[i-j] and the length of pattern_arr is not past j+1 then increment pattern_index
+    #                     pattern_index += 1
+    #                 else:
+    #                     break
+    return find_all_indexes_recursively(text, pattern, text_index+1, pattern_index, indexes)
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
@@ -144,20 +185,22 @@ def test_string_algorithms(text, pattern):
 
 def main():
     """Read command-line arguments and test string searching algorithms."""
-    import sys
-    args = sys.argv[1:]  # Ignore script file name
-    if len(args) == 2:
-        text = args[0]
-        pattern = args[1]
-        test_string_algorithms(text, pattern)
-    else:
-        script = sys.argv[0]
-        print('Usage: {} text pattern'.format(script))
-        print('Searches for occurrences of pattern in text')
-        print("\nExample: {} 'abra cadabra' 'abra'".format(script))
-        print("contains('abra cadabra', 'abra') => True")
-        print("find_index('abra cadabra', 'abra') => 0")
-        print("find_all_indexes('abra cadabra', 'abra') => [0, 8]")
+    # import sys
+    # args = sys.argv[1:]  # Ignore script file name
+    # if len(args) == 2:
+    #     text = args[0]
+    #     pattern = args[1]
+    #     test_string_algorithms(text, pattern)
+    # else:
+    #     script = sys.argv[0]
+    #     print('Usage: {} text pattern'.format(script))
+    #     print('Searches for occurrences of pattern in text')
+    #     print("\nExample: {} 'abra cadabra' 'abra'".format(script))
+    #     print("contains('abra cadabra', 'abra') => True")
+    #     print("find_index('abra cadabra', 'abra') => 0")
+    #     print("find_all_indexes('abra cadabra', 'abra') => [0, 8]")
+    indexes = find_all_indexes("abc", "z")
+    print(indexes)
 
 
 if __name__ == '__main__':
