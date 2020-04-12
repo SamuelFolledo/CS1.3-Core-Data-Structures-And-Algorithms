@@ -5,49 +5,38 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
-    # return contains_iteratively(text, pattern)
-    return contains_recursively(text, pattern)
-
-def contains_iteratively(text, pattern):
+    #1) Turn text and pattern into array which only contains letters and spaces
     text_arr = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
     pattern_arr = "".join(c.lower() for c in pattern if c.isalpha()) #turn patterns to array
-    pattern_index = 0
+    #2) Handle empty pattern_arr
     if len(pattern_arr) == 0: #handle if pattern_arr is empty, then return true
         return True
-    elif len(pattern_arr) > len(text_arr): ## error handler if pattern has more character than text..
+    # return contains_iteratively(text_arr, pattern_arr)
+    return contains_recursively(text_arr, pattern_arr)
+
+def contains_iteratively(text_arr, pattern_arr):
+    pattern_index = 0
+    if len(pattern_arr) > len(text_arr): ## error handler if pattern has more character than text..
         return False
     for i in range(len(text_arr)): #loop through each char in arr
         if text_arr[i] != pattern_arr[pattern_index]: #check if characters does not match, reset pattern_index
             pattern_index = 0
         if text_arr[i] == pattern_arr[pattern_index]: #if text char match with pattern char
-            # print(f"\tMATCH {text_arr[i]} and {pattern_arr[pattern_index]} {len(pattern_arr)}")
             pattern_index += 1
             if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
-                # print(f"\t\tFULL match! {text_arr[i]}={pattern_arr[pattern_index]}")
                 return True
     return False
 
-def contains_recursively(text, pattern, text_index=0, pattern_index=0):
-    text_arr = "".join(c.lower() for c in text if c.isalpha()) #turn text to array of strings which only contains alpha characters (no numbers, symbols, whitespaces)
-    pattern_arr = "".join(c.lower() for c in pattern if c.isalpha()) #turn patterns to array
-    if len(pattern_arr) == 0: #handle if pattern_arr is empty, then return true
-        return True
-    elif len(pattern_arr) > len(text_arr): ## error handler if pattern has more character than text..
+def contains_recursively(text_arr, pattern_arr, text_index=0, pattern_index=0):
+    if text_index == len(text_arr): #if text_index go out of bounds, return False
         return False
-    if text_index > len(text_arr) - 1: #if text_index go out of bounds, return False
-        return False
-    # print(f"DOES {text} match {pattern}?")
     if text_arr[text_index] != pattern_arr[pattern_index]: #check if characters does not match, pattern_index = 0
-        # print(f"NOPE {text_arr[text_index]} != {pattern_arr[pattern_index]}")
         pattern_index = 0
-        # return contains_recursively(text, pattern, text_index+1, pattern_index)
     if text_arr[text_index] == pattern_arr[pattern_index]: #if text char match with pattern char, move to next character
-        # print(f"\tMATCH {text_arr[text_index]} and {pattern_arr[pattern_index]}\t{pattern_index}-{len(pattern_arr)}")
         pattern_index += 1
         if pattern_index == len(pattern_arr): #if the entire pattern char matches, return True
-            # print(f"\t\tFULL match! {text_arr[text_index]}={pattern_arr[pattern_index-1]}")
             return True    
-    return contains_recursively(text, pattern, text_index+1, pattern_index)
+    return contains_recursively(text_arr, pattern_arr, text_index+1, pattern_index)
 
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
@@ -94,17 +83,19 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    #1) Turn text and pattern into array which only contains letters and spaces
     text_arr = "".join(c.lower() for c in text if c.isalpha() or c.isspace()) #turn text to array of strings which only contains alpha and whitespace characters (no numbers, symbols)
     pattern_arr = "".join(c.lower() for c in pattern if c.isalpha() or c.isspace()) #turn patterns to array
+    #2) Handle empty pattern_arr
     if len(pattern_arr) == 0: #if pattern_arr is empty, then indexes is all pattern's indexes
         indexes = []
         for i in range(len(text_arr)): #populate indexes by index of text_arr
             indexes.append(i)
         return indexes
-    #MARK: Look for all indexes Iteratively and Recursively
+    #3) Look for all indexes Iteratively and Recursively
     # indexes = find_all_indexes_iteratively(text_arr, pattern_arr, [])
     indexes = find_all_indexes_recursively(text_arr, pattern_arr, [])
-    print(f"RESULT==='{pattern}' is in {text} at indexes {indexes}\n")
+    # print(f"RESULT: '{pattern}' is in {text} at indexes {indexes}\n")
     return indexes
 
 def find_all_indexes_iteratively(text_arr, pattern_arr, indexes, pattern_index = 0):
