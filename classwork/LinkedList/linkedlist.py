@@ -104,6 +104,7 @@ class LinkedList(object):
             self.tail.next = new_node
         # Update tail to new node regardless
         self.tail = new_node
+        self.size += 1 #increment size
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
@@ -119,6 +120,7 @@ class LinkedList(object):
             new_node.next = self.head
         # Update head to new node regardless
         self.head = new_node
+        self.size += 1 #increment size
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -169,6 +171,7 @@ class LinkedList(object):
                 node = node.next
         # Check if we found the given item or we never did and reached the tail
         if found:
+            self.size -= 1 #decrement size
             # Check if we found a node in the middle of this linked list
             if node is not self.head and node is not self.tail:
                 # Update the previous node to skip around the found node
@@ -193,7 +196,6 @@ class LinkedList(object):
             # Otherwise raise an error to tell the user that delete has failed
             raise ValueError('Item not found: {}'.format(item))
 
-
 def test_linked_list():
     ll = LinkedList()
     print(ll)
@@ -211,9 +213,9 @@ def test_linked_list():
     print('length: {}'.format(ll.length()))
 
     print('Getting items by index:')
-    for index in range(ll.size):
+    # for index in range(ll.size):
         # item = ll.get_at_index(index)
-        print('get_at_index({}): {!r}'.format(index, item))
+        # print('get_at_index({}): {!r}'.format(index, item))
 
     print('Deleting items:')
     ll.delete('B')
