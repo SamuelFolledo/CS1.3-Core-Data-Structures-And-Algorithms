@@ -88,11 +88,29 @@ class LinkedList(object):
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
+        if index == 0: #handle head
+            if self.head == None: #if head is none
+                self.append(item)
+            else: #update head
+                newNode = Node(item)
+                newNode.next = self.head #point newNode to head
+                self.head = newNode #make newNode the new head
+                self.size += 1
+            return
+        if index == self.size: #handle tail
+            self.append(item)
+            return
         # TODO: Find the node before the given index and insert item after it
-        counter = 0
+        counter = 1 #initialize as 1 because we checked head already
         current = self.head
-        while current:
-            return None
+        while current.next: #current's next is not None
+            if counter == index: #if we got the node at specified index
+                newNode = Node(item)
+                newNode.next = current.next #assign new node's next to be current.next
+                current.next = newNode #point current.next to newNode which has our item and pointing to previous current.next
+                self.size += 1
+            counter += 1
+            current = current.next
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
