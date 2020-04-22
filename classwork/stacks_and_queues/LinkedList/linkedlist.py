@@ -126,6 +126,7 @@ class LinkedList(object):
         if self.is_empty():
             # Assign head to new node
             self.head = new_node
+            self.tail = new_node
         else:
             # Otherwise insert new node after tail
             self.tail.next = new_node
