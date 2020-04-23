@@ -1,6 +1,6 @@
 #!python
 
-from LinkedList.linkedlist import LinkedList
+from linkedlist import LinkedList
 
 # Implement LinkedQueue below, then change the assignment at the bottom
 # to use this Queue implementation to verify it passes all tests
