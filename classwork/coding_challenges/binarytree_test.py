@@ -2,7 +2,7 @@
 
 #!python
 
-from binarytree import BinaryTreeNode
+from binarytree import BinarySearchTree, BinaryTreeNode
 import unittest
 
 
@@ -70,37 +70,37 @@ class BinaryTreeNodeTest(unittest.TestCase):
         assert node.height() == 3
 
 
-# class BinarySearchTreeTest(unittest.TestCase):
+class BinarySearchTreeTest(unittest.TestCase):
 
-#     def test_init(self):
-#         tree = BinarySearchTree()
-#         assert tree.root is None
-#         assert tree.size == 0
-#         assert tree.is_empty() is True
+    def test_init(self):
+        tree = BinarySearchTree()
+        assert tree.root is None
+        assert tree.size == 0
+        assert tree.is_empty() is True
 
-#     def test_init_with_list(self):
-#         tree = BinarySearchTree([2, 1, 3])
-#         assert tree.root.data == 2
-#         assert tree.root.left.data == 1
-#         assert tree.root.right.data == 3
-#         assert tree.size == 3
-#         assert tree.is_empty() is False
+    def test_init_with_list(self):
+        tree = BinarySearchTree([2, 1, 3])
+        assert tree.root.data == 2
+        assert tree.root.left.data == 1
+        assert tree.root.right.data == 3
+        assert tree.size == 3
+        assert tree.is_empty() is False
 
-#     def test_init_with_list_of_strings(self):
-#         tree = BinarySearchTree(['B', 'A', 'C'])
-#         assert tree.root.data == 'B'
-#         assert tree.root.left.data == 'A'
-#         assert tree.root.right.data == 'C'
-#         assert tree.size == 3
-#         assert tree.is_empty() is False
+    def test_init_with_list_of_strings(self):
+        tree = BinarySearchTree(['B', 'A', 'C'])
+        assert tree.root.data == 'B'
+        assert tree.root.left.data == 'A'
+        assert tree.root.right.data == 'C'
+        assert tree.size == 3
+        assert tree.is_empty() is False
 
-#     def test_init_with_list_of_tuples(self):
-#         tree = BinarySearchTree([(2, 'B'), (1, 'A'), (3, 'C')])
-#         assert tree.root.data == (2, 'B')
-#         assert tree.root.left.data == (1, 'A')
-#         assert tree.root.right.data == (3, 'C')
-#         assert tree.size == 3
-#         assert tree.is_empty() is False
+    def test_init_with_list_of_tuples(self):
+        tree = BinarySearchTree([(2, 'B'), (1, 'A'), (3, 'C')])
+        assert tree.root.data == (2, 'B')
+        assert tree.root.left.data == (1, 'A')
+        assert tree.root.right.data == (3, 'C')
+        assert tree.size == 3
+        assert tree.is_empty() is False
 
 #     def test_size(self):
 #         tree = BinarySearchTree()
