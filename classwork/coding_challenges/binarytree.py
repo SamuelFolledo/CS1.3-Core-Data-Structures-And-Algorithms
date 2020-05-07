@@ -216,9 +216,20 @@ class BinarySearchTree(object):
         """Remove given item from this tree, if present, or raise ValueError.
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?"""
+        node = self._find_node_recursive(item, self.root) #get the node to delete
+        if node is None:
+            # raise ValueError because node is not present
+            raise ValueError('Item is not in this binary tree.')
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
+        self.size -= 1
+        parent = self._find_parent_node_recursive(node.data)
+        if node.is_leaf(): #if node has no left or right child
+        
+        elif node.is_branch(): #if node has at least 1 child
+
+
 
     # def items_in_order(self):
     #     """Return an in-order list of all items in this binary search tree."""
