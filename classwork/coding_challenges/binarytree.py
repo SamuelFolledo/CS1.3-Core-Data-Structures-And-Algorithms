@@ -127,11 +127,11 @@ class BinarySearchTree(object):
                 # Return the found node
                 return node
             # TODO: Check if the given item is less than the node's data
-            elif node.data < item:
+            elif item < node.data:
                 # TODO: Descend to the node's left child
                 node = node.left
             # TODO: Check if the given item is greater than the node's data
-            elif node.data > item:
+            elif item > node.data:
                 # TODO: Descend to the node's right child
                 node = node.right
         # Not found
@@ -144,6 +144,7 @@ class BinarySearchTree(object):
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?"""
         # Check if starting node exists
+        print(f"Finding item {item} at {node.data}")
         if node is None:
             # Not found (base case)
             return None
@@ -152,11 +153,11 @@ class BinarySearchTree(object):
             # Return the found node
             return node
         # TODO: Check if the given item is less than the node's data
-        elif node.data < item:
+        elif item < node.data:
             # TODO: Recursively descend to the node's left child, if it exists
             return self._find_node_recursive(item, node.left)
         # TODO: Check if the given item is greater than the node's data
-        elif node.data > item:
+        elif item > node.data:
             # TODO: Recursively descend to the node's right child, if it exists
             return self._find_node_recursive(item, node.right)
 
