@@ -184,7 +184,9 @@ class BinarySearchTreeTest(unittest.TestCase):
         assert tree.root.left.data == 1
         assert tree.root.right.data == 3
         # TODO: Test structure of tree after each deletion
+        print("TREE=", tree.root, tree.root.left, tree.root.right)
         tree.delete(1)
+        print("TREE=", tree.root, tree.root.left, tree.root.right)
         assert tree.root.left is None
 #         # assert tree.root.data == ...
 #         # assert tree.root.left is ...

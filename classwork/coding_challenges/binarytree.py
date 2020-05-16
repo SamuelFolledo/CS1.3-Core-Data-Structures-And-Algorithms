@@ -232,12 +232,35 @@ class BinarySearchTree(object):
             if parent == None: #node with data is the root
                 self.root = None
             elif is_left_of_parent:
+                print(f"is in left of {parent}")
                 parent.left == None
+                print("PARENT=", parent, parent.left, parent.right)
             else:
+                print(f"is in right of {parent}")
                 parent.right == None
+            return None
         elif node.is_branch(): #if node has at least 1 child
-            pass
+            if node is self.root:
+                self.root == node.left
 
+    def promote_descendants(self, node, parent):
+        """Takes the descendants on the left, raise them to the parent's place.
+           Parameters:
+           - node: node to delete
+           - parent: node's parent
+        """
+        while node.left is not None:
+            moving_up = node.left
+            is_left_of_parent = parent.left == node #returns true if node is in parent's left
+            # if parent is not None and direction is None:
+            #     direction = self.find_direction(node, parent)
+            if is_left_of_parent: #if node is in parent's left
+                parent.left = moving_up
+            elif direction == 'right':
+                parent.right = moving_up
+            moving_up.right = node.right
+            parent = node
+            node = node.left
 
     # def items_in_order(self):
     #     """Return an in-order list of all items in this binary search tree."""
